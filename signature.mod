@@ -1,0 +1,1 @@
+[BR][mail your@mail.com]Edit signature.mod to change this text![/mail]

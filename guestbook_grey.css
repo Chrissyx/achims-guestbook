@@ -1,0 +1,172 @@
+BODY {
+	COLOR: #000000; 
+	BACKGROUND-COLOR: #333333; 
+	BACKGROUND-IMAGE:URL(gif/bg.gif);
+}
+
+A {
+	COLOR: #FFFF99;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: normal;
+	TEXT-DECORATION: none;
+}
+
+A:visited {
+	COLOR: #FFFF99;
+	TEXT-DECORATION: none;
+}
+
+A:hover {
+	COLOR: #FFFF99;
+	TEXT-DECORATION: underline;
+}
+
+A:active {
+	COLOR: #FFFF99;
+	TEXT-DECORATION: underline;
+}
+
+A.normlink {
+	COLOR: #FFFF70;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: normal;
+	TEXT-DECORATION: none;
+}
+
+A.normlink:visited {
+	COLOR: #FFFF70;
+	TEXT-DECORATION: none;
+}
+
+A.normlink:hover {
+	COLOR: #FFFF70;
+	TEXT-DECORATION: underline;
+}
+
+A.normlink:active {
+	COLOR: #FFFF70;
+	TEXT-DECORATION: underline;
+}
+
+A.tablelink {
+	COLOR: #FFFFC0;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: normal;
+}
+
+A.tablelink:visited {
+	COLOR: #FFFFC0;
+	TEXT-DECORATION: none;
+}
+
+A.tablelink:hover {
+	COLOR: #FFFF99;
+	TEXT-DECORATION: underline;
+}
+
+A.tablelink:active {
+	COLOR: #FFFF99;
+	TEXT-DECORATION: underline;
+}
+
+TR.tableheader {
+	BACKGROUND-COLOR: #5A6269;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: xx-small;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: bold;
+}
+
+TR.tablerow1 {
+	BACKGROUND: #C0C9CB;
+}
+
+TR.tablerow2 {
+	BACKGROUND: #A6B0B3;
+}
+
+TR.searchresult {
+	BACKGROUND: #A5A5A5;
+}
+
+DIV.fat {
+	FONT-WEIGHT: bold;
+}
+
+FONT.header {
+	COLOR: #FFFFFF;
+}
+
+FONT.normalcol {
+	COLOR: #FFFFFF;
+}
+
+FONT.number {
+	COLOR: #000000;
+}
+
+FONT.copyright {
+	COLOR: #FFFFFF;
+}
+
+FONT.attention {
+	COLOR: #E01010;
+}
+
+TD.header {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: normal;
+}
+
+TD.normalcol {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: small;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: normal;
+}
+
+INPUT.text {
+	BACKGROUND-COLOR: #FFFFFF;
+	BORDER-BOTTOM-COLOR: #000000;
+	BORDER-BOTTOM-WIDTH: 1px;
+	BORDER-LEFT-COLOR: #000000;
+	BORDER-LEFT-WIDTH: 1px;
+	BORDER-RIGHT-COLOR: #000000;
+	BORDER-RIGHT-WIDTH: 1px;
+	BORDER-TOP-COLOR: #000000;
+	BORDER-TOP-WIDTH: 1px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 10pt;
+	MARGIN-BOTTOM: 1px;
+	MARGIN-TOP: 1px;
+}
+
+INPUT.submit {
+	BORDER-BOTTOM-COLOR: #000000;
+	BORDER-BOTTOM-WIDTH: 1px;
+	BORDER-LEFT-COLOR: #000000;
+	BORDER-LEFT-WIDTH: 1px;
+	BORDER-RIGHT-COLOR: #000000;
+	BORDER-RIGHT-WIDTH: 1px;
+	BORDER-TOP-COLOR: #000000;
+	BORDER-TOP-WIDTH: 1px;
+	COLOR: #243543;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 9px;
+	FONT-WEIGHT: bold;
+	HEIGHT: 11px;
+}
+
+TEXTAREA {
+	BACKGROUND-COLOR: #FFFFFF;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 10pt;
+	OVERFLOW-X: hidden;
+	OVERFLOW-Y: auto
+}
