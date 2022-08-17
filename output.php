@@ -40,8 +40,8 @@ class COutput {
 	function COutput($page, $entrypos, $phrase) {
 		global $lang;
 
-		$this->page = $page;
-		$this->entrypos = $entrypos;
+		$this->page = (int)$page;
+		$this->entrypos = (int)$entrypos;
 		$this->phrase = $phrase;
 	
 		if (!file_exists("config.php")) die ("Can't open config.php!");

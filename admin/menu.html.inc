@@ -29,6 +29,7 @@
 		<INPUT TYPE="radio" NAME="act" VALUE="deleterange" ONFOCUS="filter:blur()">&nbsp;Delete Range<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="editwordfilter" ONFOCUS="filter:blur()">&nbsp;Edit Wordfilterlist<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="editipfilter" ONFOCUS="filter:blur()">&nbsp;Edit IP-Filter<P>
+		<INPUT TYPE="radio" NAME="act" VALUE="editignorefilter" ONFOCUS="filter:blur()">&nbsp;Edit Ignore-Filter<P>
 		<?php 
 			global $adminpass;
 			if (md5($login) == $adminpass) { #the following is only for admins visible

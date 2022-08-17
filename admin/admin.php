@@ -19,13 +19,13 @@
  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.
 */
-	
+
 	global $HTTP_GET_VARS, $HTTP_POST_VARS, $HTTP_COOKIE_VARS;
-	
+
 	ob_start();
-	
+
 	error_reporting(0);
-	
+
 	if (!file_exists("../config.php")) die ("Can't open config.php!");
 	include("../config.php");
 
@@ -70,6 +70,7 @@
 	if (isset($HTTP_POST_VARS['last'])) $last = $HTTP_POST_VARS['last'];
 	if (isset($HTTP_POST_VARS['wordfilter'])) $wordfilter = $HTTP_POST_VARS['wordfilter'];
 	if (isset($HTTP_POST_VARS['ipfilter'])) $ipfilter = $HTTP_POST_VARS['ipfilter'];
+	if (isset($HTTP_POST_VARS['ignorefilter'])) $ignorefilter = $HTTP_POST_VARS['ignorefilter'];
 	if (isset($HTTP_POST_VARS['newindex'])) $newindex = $HTTP_POST_VARS['newindex'];
 	if (isset($HTTP_POST_VARS['pname'])) $pname = $HTTP_POST_VARS['pname'];
 	if (isset($HTTP_POST_VARS['pmail'])) $newmail = $HTTP_POST_VARS['pmail'];
@@ -125,7 +126,7 @@
 	if (isset($HTTP_POST_VARS['_passfornewentries'])) $_passfornewentries = $HTTP_POST_VARS['_passfornewentries'];
 	if (isset($HTTP_POST_VARS['_cookielifetime'])) $_cookielifetime = $HTTP_POST_VARS['_cookielifetime'];
 	if (isset($HTTP_POST_VARS['_datapath'])) $_datapath = $HTTP_POST_VARS['_datapath'];
-	
+
 	if ((!isset($GuestbookAdmin) || md5($GuestbookAdmin) != $adminpass) && isset($login)) {
 		if (md5($login) == $adminpass && isset($store)) {
 			if (isset($GuestbookModerator) && md5($GuestbookModerator) == $moderatorpass) {
@@ -245,7 +246,7 @@
 			#parse pseudo html commands and replace it with real html commands
 			$formstring = eregi_replace("\[BR\]", "<BR>", $formstring);
 			$formstring = eregi_replace("\[P\]", "<P>", $formstring);
-			
+
 			if ($emotion == "yes") {
 				if (!file_exists("../smileys.php")) die ("Can't open smileys.php!");
 				include("../smileys.php");
@@ -256,7 +257,7 @@
 					$formstring = eregi_replace($key, $value, $formstring);
 				}
 			}
-			
+
 			Parse_HTML($formstring, "B");
 			Parse_HTML($formstring, "I");
 			Parse_HTML($formstring, "U");
@@ -270,7 +271,7 @@
 			Parse_HTML($formstring, "LINK");
 			Parse_HTML($formstring, "MAIL");
 			Parse_HTML($formstring, "PIC");
-			
+
 			$formstring = eregi_replace("<BR>\r\n", "<BR>", $formstring);
 			$formstring = eregi_replace("<P>\r\n", "<P>", $formstring);
 			$formstring = ereg_replace("\r\n", "<BR>", $formstring);
@@ -312,7 +313,7 @@
 	function Show_Menu(&$login) {
 		if (!file_exists("menu.html.inc")) die ("Can't open menu.html.inc!");
 		include("menu.html.inc");
-		
+
 		Unlock();
 	}
 
@@ -392,7 +393,7 @@
 						$newdate = strftime("%d.%m.%Y %H:%M", time() + ($fixedtime * 3600));
 					}
 				}
-				
+
 				#read signature file
 				if (file_exists("../signature.adm") && md5($login) == $adminpass && $signature == true) {
 					$input = fopen("../signature.adm", "r");
@@ -438,7 +439,7 @@
 				fputs($output, rtrim("text=".$newtext)."\r\n");
 				fputs($output, rtrim("date=".$newdate)."\r\n");
 				fputs($output, rtrim("ip=".$newip)."\r\n");
-				
+
 				for ($i = strlen($position); $i < $indexsize; $i++)
 					$dummy .= "0";
 				$position = $dummy.$position;
@@ -595,6 +596,35 @@
 
 				Show_Menu($login);
 			}
+		}
+		elseif ($act == "editignorefilter") {
+				if (!isset($do)) {
+					$input = fopen("../".$datapath."/ignorefilter.dat", "r") or die ("Can't open ignorefilter.dat for reading!");
+
+					$filter = "";
+					while (!feof($input)) {
+						$filter .= trim(fgets($input, 1024))."\r\n";
+					}
+					trim($filter);
+
+					fclose($input);
+
+					if (!file_exists("editignorefilter.html.inc")) die ("Can't open editignorefilter.html.inc!");
+					include("editignorefilter.html.inc");
+				} else {
+					$filter = explode("\n", trim($ignorefilter));
+					
+					$output = fopen("../".$datapath."/ignorefilter.dat", "w") or die ("Can't open ignorefilter.dat for writing!");
+
+					for ($i = 0; $i < count($filter); $i++) {
+						if ($filter[$i] != "")
+							fputs($output, trim($filter[$i])."\r\n");
+					}
+
+					fclose($output);
+
+					Show_Menu($login);
+				}
 		}
 		elseif ($act == "changeconfig" && md5($login) == $adminpass) {
 			if (!isset($do)) {
@@ -1073,4 +1103,4 @@
 
 	ob_end_flush();
 
-?> 
+?>
