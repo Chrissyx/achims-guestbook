@@ -1,13 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <HTML>
 <HEAD>
 	<TITLE>Guestbook - Administration</TITLE>
 	<LINK HREF="../guestbook.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
-
 <BODY>
-
 <TABLE BORDER="0" ALIGN="center" CELLPADDING="2" CELLSPACING="1" WIDTH="60%">
 <TR CLASS="tableheader">
 	<TD CLASS="header" COLSPAN="3" HEIGHT="40" VALIGN="top">
@@ -30,16 +27,20 @@
 		<INPUT TYPE="radio" NAME="act" VALUE="editwordfilter" ONFOCUS="filter:blur()">&nbsp;Edit Wordfilterlist<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="editipfilter" ONFOCUS="filter:blur()">&nbsp;Edit IP-Filter<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="editignorefilter" ONFOCUS="filter:blur()">&nbsp;Edit Ignore-Filter<P>
-		<?php 
-			global $adminpass;
-			if (md5($login) == $adminpass) { #the following is only for admins visible
-		?>
+<?php
+global $adminpass;
+if(md5($login) == $adminpass)
+{
+    #the following is only for admins visible
+?>
 		<INPUT TYPE="radio" NAME="act" VALUE="changeconfig" ONFOCUS="filter:blur()">&nbsp;Change Config<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="newdatabase" ONFOCUS="filter:blur()">&nbsp;Rebuild Database<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="resizeindex" ONFOCUS="filter:blur()">&nbsp;Resize Indexsize<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="rebuildindex" ONFOCUS="filter:blur()">&nbsp;Rebuild Indexfile<P>
 		<INPUT TYPE="radio" NAME="act" VALUE="importcsv" ONFOCUS="filter:blur()">&nbsp;Import CSV-File<P>
-		<?php } ?>
+<?php
+}
+?>
 		<INPUT TYPE="radio" NAME="act" VALUE="deletecookie" ONFOCUS="filter:blur()">&nbsp;Delete Cookies</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="center" VALIGN="middle" WIDTH="20%">&nbsp;</TD>
@@ -59,6 +60,5 @@
 	</TD>
 </TR>
 </TABLE>
-
 </BODY>
 </HTML>

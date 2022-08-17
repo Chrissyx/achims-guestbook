@@ -1,13 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <HTML>
 <HEAD>
 	<TITLE>Guestbook - Administration</TITLE>
 	<LINK HREF="../guestbook.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
-
 <BODY>
-
 <TABLE BORDER="0" ALIGN="center" VALIGN="middle" CELLPADDING="10" CELLSPACING="1" WIDTH="70%" HEIGHT="100%">
 <TR HEIGHT="50%">
 	<TD WIDTH="35%"></TD>
@@ -29,6 +26,5 @@
 	<TD WIDTH="35%"></TD>
 </TR>
 </TABLE>
-
 </BODY>
 </HTML>

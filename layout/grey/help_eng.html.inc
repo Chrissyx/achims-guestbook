@@ -26,13 +26,16 @@
 			[COLOR FF0000]<FONT COLOR="FF0000">COLOR</FONT>[/COLOR]<P>
 			[LINK http://www.php.net]<A HREF="http://www.php.net">LINK</A>[/LINK]<P>
 			[MAIL achim@lkcc.org]<A HREF="mailto:achim@lkcc.org">MAIL</A>[/MAIL]
-			<?php
-				if ($this->pictures != 0) {
-					echo "<P>[PIC]http://www.lkcc.org:8500/guestbook/gif/test.gif <IMG BORDER=\"0\" ALIGN=\"middle\" SRC=\"gif/test.gif\"> [/PIC]<BR>";
-				} else {
-					echo "<BR>";
-				}
-			?></DIV>
+<?php
+if($this->pictures != 0)
+{
+    echo "<P>[PIC]http://www.lkcc.org:8500/guestbook/gif/test.gif <IMG BORDER=\"0\" ALIGN=\"middle\" SRC=\"gif/test.gif\"> [/PIC]<BR>";
+}
+else
+{
+    echo "<BR>";
+}
+?></DIV>
 			</TD>
 		</TR>
 		<TR>
@@ -52,10 +55,10 @@
 			</TD>
 			<TD CLASS="table2">
 			<DIV CLASS="text">
-			:) & :-) = <IMG SRC="gif/lustig.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
-			;) & ;-) = <IMG SRC="gif/wink.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
-			:( & :-( = <IMG SRC="gif/traurig.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
-			:p & :P = <IMG SRC="gif/tongue.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
+			:) &amp; :-) = <IMG SRC="gif/lustig.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
+			;) &amp; ;-) = <IMG SRC="gif/wink.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
+			:( &amp; :-( = <IMG SRC="gif/traurig.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
+			:p &amp; :P = <IMG SRC="gif/tongue.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
 			:o = <IMG SRC="gif/redface.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
 			:cool: = <IMG SRC="gif/cool.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>
 			:D = <IMG SRC="gif/biggrin.gif" BORDER="0" WIDTH="15" HEIGHT="15"><P>

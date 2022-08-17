@@ -1,7 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <HTML>
-
 <HEAD>
 	<?php echo $this->messages[32]; ?>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
@@ -10,9 +8,7 @@
 	<TITLE><?php echo $this->messages[19]; ?></TITLE>
 	<LINK HREF="guestbook.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
-
 <BODY>
-
 <TABLE BORDER="0" ALIGN="center" CELLPADDING="2" CELLSPACING="1" WIDTH="80%">
 <TR CLASS="tableheader">
 	<TD CLASS="header" COLSPAN="2" HEIGHT="40" VALIGN="top">
@@ -26,48 +22,52 @@
 	<FONT CLASS="normalcol" SIZE="2"><?php echo $newdate; ?><BR>
 	<DIV CLASS="fat"><?php echo $newname; ?></DIV></FONT>
 	<FONT CLASS="normalcol" style="font-size: 8pt;">
-	<?php
-		switch ($this->language) {
-			case "ger": 
-					if (!file_exists("location_ger.php")) die ("Can't open location_ger.php!");
-					include("location_ger.php");
-					break;
-			default: 
-					if (!file_exists("location_eng.php")) die ("Can't open location_eng.php!");
-					include("location_eng.php");
-		}
+<?php
+switch($this->language)
+{
+    case "ger":
+    require("location_ger.php");
+    break;
 
-		if ($newloc != 0) echo $location[$newloc];		
-	?>
+    default:
+    require("location_eng.php");
+    break;
+}
+if($newloc != 0)
+    echo $location[$newloc];
+?>
 	</FONT><FONT SIZE="1px"><DIV><BR></DIV></FONT>
-	<?php
-		if ($newmail != "")
-			echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"mailto:$newmail\"><IMG BORDER=\"0\" SRC=\"gif/email.gif\" HEIGHT=\"16\" WIDTH=\"33\"></IMG>&nbsp;</A></FONT>";
-		if ($newurl != "")
-			echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" href=\"$newurl\" TARGET=\"_blank\"><IMG BORDER=\"0\" SRC=\"gif/home.gif\" HEIGHT=\"16\" WIDTH=\"32\"></IMG></A></FONT>";
-		if (($newicq != "" || $newaim != "" || $newyim != "" || $newmsn != "") && ($newmail != "" || $newurl != ""))
-			echo "<BR>";
-		if ($this->shortmessengerformat == 1) {
-			if ($newicq != "")
-				echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newicq\"></IMG></A>&nbsp;";	
-			if ($newaim != "")
-				echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newaim\"></IMG></A>&nbsp;";
-			if ($newyim != "")
-				echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$newyim&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newyim\"></IMG></A>&nbsp;";	
-			if ($newmsn != "")
-				echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"javascript:void(0);\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newmsn\"></IMG></A><BR>";
-		} else {
-			if ($newicq != "")
-				echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$newicq</IMG></A></FONT><BR>";	
-			if ($newaim != "")
-				echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"AIM\">&nbsp;$newaim</IMG></A></FONT><BR>";
-			if ($newyim != "")
-				echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$newyim&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"YIM\">&nbsp;$newyim</IMG></A></FONT><BR>";	
-			if ($newmsn != "")
-				echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"javascript:void(0);\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"MSN\">&nbsp;$newmsn</IMG></A></FONT><BR>";
-		}
-	?>
-	</TD>	
+<?php
+if($newmail != "")
+    echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"mailto:$newmail\"><IMG BORDER=\"0\" SRC=\"gif/email.gif\" HEIGHT=\"16\" WIDTH=\"33\"></IMG>&nbsp;</A></FONT>";
+if($newurl != "")
+    echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" href=\"$newurl\" TARGET=\"_blank\"><IMG BORDER=\"0\" SRC=\"gif/home.gif\" HEIGHT=\"16\" WIDTH=\"32\"></IMG></A></FONT>";
+if(($newicq != "" || $newaim != "" || $newyim != "" || $newmsn != "") && ($newmail != "" || $newurl != ""))
+    echo "<BR>";
+if($this->shortmessengerformat == 1)
+{
+    if($newicq != "")
+        echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newicq\"></IMG></A>&nbsp;";
+    if($newaim != "")
+        echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newaim\"></IMG></A>&nbsp;";
+    if($newyim != "")
+        echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$newyim&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newyim\"></IMG></A>&nbsp;";
+    if($newmsn != "")
+        echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"javascript:void(0);\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newmsn\"></IMG></A><BR>";
+}
+else
+{
+    if($newicq != "")
+        echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$newicq</IMG></A></FONT><BR>";
+    if($newaim != "")
+        echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"AIM\">&nbsp;$newaim</IMG></A></FONT><BR>";
+    if($newyim != "")
+        echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$newyim&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"YIM\">&nbsp;$newyim</IMG></A></FONT><BR>";
+    if($newmsn != "")
+        echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"javascript:void(0);\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"MSN\">&nbsp;$newmsn</IMG></A></FONT><BR>";
+}
+?>
+	</TD>
 	<TD CLASS="normalcol" VALIGN="top" WIDTH="70%">
 	<FONT SIZE="2" CLASS="normalcol"><?php echo $newtext; ?><BR></FONT>
 	</TD>
@@ -81,7 +81,7 @@
 	<TR CLASS="tablerow2">
 		<TD CLASS="normalcol" WIDTH="20%">
 		<FONT CLASS="header" SIZE="2">
-		<FORM ACTION="guestbook.php<?php global $lang; if (isset($lang)) echo "?lang=".$lang; ?>" METHOD="post">
+		<FORM ACTION="guestbook.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>" METHOD="post">
 		<INPUT TYPE="hidden" NAME="act" VALUE="write">
 		<INPUT TYPE="hidden" NAME="pre" VALUE="yes">
 		<INPUT TYPE="hidden" NAME="presave" VALUE="yes">
@@ -91,7 +91,7 @@
 		</TD></FORM>
 		<TD CLASS="normalcol" WIDTH="80%">
 		<FONT CLASS="header" SIZE="2">
-		<FORM ACTION="guestbook.php<?php global $lang; if (isset($lang)) echo "?lang=".$lang; ?>" METHOD="post">
+		<FORM ACTION="guestbook.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>" METHOD="post">
 		<INPUT TYPE="hidden" NAME="act" VALUE="new">
 		<INPUT TYPE="hidden" NAME="newname" VALUE="<?php echo $this->newname; ?>">
 		<INPUT TYPE="hidden" NAME="newmail" VALUE="<?php echo $this->newmail; ?>">
@@ -114,6 +114,5 @@
 	</TD>
 </TR>
 </TABLE>
-
 </BODY>
 </HTML>

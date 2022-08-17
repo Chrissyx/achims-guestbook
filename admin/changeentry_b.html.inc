@@ -1,22 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <HTML>
 <HEAD>
 	<TITLE>Guestbook - Change Entry</TITLE>
 	<LINK HREF="../guestbook.css" REL="stylesheet" TYPE="text/css">
 
-	<SCRIPT LANGUAGE="JavaScript">
-	<!--
-	function SetSmiley(Which) {
+	<SCRIPT TYPE="text/javascript">
+/* <![CDATA[ */
+	function SetSmiley(Which)
+    {
    		document.changeentry.newtext.value = document.changeentry.newtext.value + Which;
 	}
-	//-->
+/* ]]> */
 	</SCRIPT>
 </HEAD>
-
 <BODY>
-
-<FORM NAME="changeentry" ACTION="admin.php<?php global $lang; if (isset($lang)) echo "?lang=".$lang; ?>" METHOD="post">
+<FORM NAME="changeentry" ACTION="admin.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>" METHOD="post">
 <INPUT TYPE="hidden" NAME="login" VALUE="<?php echo $login; ?>">
 <INPUT TYPE="hidden" NAME="act" VALUE="<?php echo $act; ?>">
 <INPUT TYPE="hidden" NAME="entry" VALUE="<?php echo $entry; ?>">
@@ -86,27 +84,31 @@
 	</TD>
 	<TD CLASS="normalcol">
 	<FONT SIZE="2">
-	<?php
-		switch ($this->language) {
-			case "ger": 
-					if (!file_exists("../location_ger.php")) die ("Can't open location_ger.php!");
-					include("../location_ger.php");
-					break;
-			default: 
-					if (!file_exists("../location_eng.php")) die ("Can't open location_eng.php!");
-					include("../location_eng.php");
-		}
+<?php
+switch($this->language)
+{
+    case "ger":
+	require("../location_ger.php");
+	break;
 
-		asort($location);
-		reset($location);
-		
-		echo "<SELECT name=\"newloc\" size=\"1\">";
-		foreach($location as $key => $value) {
-			if ($key == $loc) echo "<OPTION SELECTED VALUE=\"$key\">$value</OPTION>";
-			else echo "<OPTION VALUE=\"$key\">$value</OPTION>";
-		}
-		echo "</SELECT>";
-	?>
+    default:
+	require("../location_eng.php");
+    break;
+}
+
+asort($location);
+reset($location);
+
+echo "<SELECT name=\"newloc\" size=\"1\">";
+foreach($location as $key => $value)
+{
+    if($key == $loc)
+        echo "<OPTION SELECTED VALUE=\"$key\">$value</OPTION>";
+    else
+        echo "<OPTION VALUE=\"$key\">$value</OPTION>";
+}
+echo "</SELECT>";
+?>
 	</FONT>
 	</TD>
 </TR>
@@ -132,21 +134,22 @@
 	</TD>
 	<TD CLASS="normalcol">
 	<FONT SIZE="2">
-	<?php
-		global $limitshownsmileylist;
-		
-		if (!file_exists("../smileys.php")) die ("Can't open smileys.php!");
-		include("../smileys.php");
+<?php
+global $limitshownsmileylist;
 
-		reset($smileylist);
+require("../smileys.php");
 
-		$count = 0;
-		while ((list($key, $value) = each($smileylist)) && ($count < $limitshownsmileylist)) {
-			if ($count != 0 && ($count % 20) == 0) echo "<BR>";
-			echo "<A HREF=\"javascript:SetSmiley('".$key."')\" ONFOCUS=\"filter:blur()\">".str_replace("gif/", "../gif/", stripslashes($value))."</A>";
-			$count++;
-		}
-	?>
+reset($smileylist);
+
+$count = 0;
+while((list($key, $value) = each($smileylist)) && ($count < $limitshownsmileylist))
+{
+    if($count != 0 && ($count % 20) == 0)
+        echo "<BR>";
+    echo "<A HREF=\"javascript:SetSmiley('" . $key . "')\" ONFOCUS=\"filter:blur()\">" . str_replace("gif/", "../gif/", stripslashes($value)) . "</A>";
+    $count++;
+}
+?>
 	</FONT>
 	</TD>
 </TR>
@@ -175,7 +178,9 @@
 </TR>
 </TABLE></FORM>
 
-<?php if (file_exists("help_eng.html.inc")) include("help_eng.html.inc"); ?>
-
+<?php
+if(file_exists("help_eng.html.inc"))
+    include("help_eng.html.inc");
+?>
 </BODY>
 </HTML>

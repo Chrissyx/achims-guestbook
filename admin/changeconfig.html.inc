@@ -1,13 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <HTML>
 <HEAD>
 	<TITLE>Guestbook - Change Config</TITLE>
 	<LINK HREF="../guestbook.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
-
 <BODY>
-
 <TABLE BORDER="0" ALIGN="center" CELLPADDING="0" CELLSPACING="1" WIDTH="60%">
 <TR CLASS="tableheader">
 	<TD CLASS="header" COLSPAN="3" HEIGHT="40" VALIGN="top">
@@ -28,13 +25,16 @@
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%"><BR>
 		<SELECT NAME="_language" SIZE="1">
-		<?php
-			$lang = array("eng"=>"English", "ger"=>"German", "swe"=>"Swedish", "fre"=>"French", "ita"=>"Italian", "por"=>"Portuguese", "dut"=>"Dutch", "spa"=>"Spanish", "rus"=>"Russian", "cze"=>"Czech", "fin"=>"Finnish", "chi"=>"Chinese", "dan"=>"Danish", "pol"=>"Polish", "ice"=>"Icelandic", "svk"=>"Slovak", "hug"=>"Hungarian");
-			foreach($lang as $key => $value) {
-				if ($key == $language) echo "<OPTION SELECTED VALUE=\"$key\">$value";
-				else echo "<OPTION VALUE=\"$key\">$value";			
-			}
-		?>
+<?php
+$lang = array("eng" => "English", "ger" => "German", "swe" => "Swedish", "fre" => "French", "ita" => "Italian", "por" => "Portuguese", "dut" => "Dutch", "spa" => "Spanish", "rus" => "Russian", "cze" => "Czech", "fin" => "Finnish", "chi" => "Chinese", "dan" => "Danish", "pol" => "Polish", "ice" => "Icelandic", "svk" => "Slovak", "hug" => "Hungarian");
+foreach($lang as $key => $value)
+{
+    if($key == $language)
+        echo "<OPTION SELECTED VALUE=\"$key\">$value";
+    else
+        echo "<OPTION VALUE=\"$key\">$value";
+}
+?>
 		</SELECT>
 		</TD>
 	</TR>
@@ -43,13 +43,16 @@
 		<FONT CLASS="normalcol" SIZE="2">Indexsize:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if (filesize("../".$datapath."/index.dat") == 0) {
-				echo "<INPUT TYPE=\"text\" NAME=\"_indexsize\" SIZE=\"$inputsize\" MAXLENGTH=\"2\" VALUE=\"$indexsize\"><P></TD></TR>";
-			} else {
-				echo "<INPUT TYPE=\"text\" NAME=\"_indexsize\" SIZE=\"$inputsize\" MAXLENGTH=\"2\" DISABLED VALUE=\"$indexsize\"><INPUT TYPE=\"hidden\" NAME=\"_indexsize\" VALUE=\"$indexsize\"><P>";
-			}
-		?>
+<?php
+if(filesize("../" . $datapath . "/index.dat") == 0)
+{
+    echo "<INPUT TYPE=\"text\" NAME=\"_indexsize\" SIZE=\"$inputsize\" MAXLENGTH=\"2\" VALUE=\"$indexsize\"><P></TD></TR>";
+}
+else
+{
+    echo "<INPUT TYPE=\"text\" NAME=\"_indexsize\" SIZE=\"$inputsize\" MAXLENGTH=\"2\" DISABLED VALUE=\"$indexsize\"><INPUT TYPE=\"hidden\" NAME=\"_indexsize\" VALUE=\"$indexsize\"><P>";
+}
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -73,12 +76,12 @@
 		<FONT CLASS="normalcol" SIZE="2">HTML Filter:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($html_filter != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($html_filter != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_html_filter\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -86,12 +89,12 @@
 		<FONT CLASS="normalcol" SIZE="2">Wordfilter:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($word_filter != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($word_filter != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_word_filter\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -99,12 +102,12 @@
 		<FONT CLASS="normalcol" SIZE="2">Smileys:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($smileypics != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>		
+<?php
+if($smileypics != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_smileypics\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -171,12 +174,12 @@
 		<FONT CLASS="normalcol" SIZE="2">LogIP:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($logip != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($logip != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_logip\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -184,12 +187,12 @@
 		<FONT CLASS="normalcol" SIZE="2">Messengers:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($messengers != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($messengers != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_messengers\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -197,12 +200,12 @@
 		<FONT CLASS="normalcol" SIZE="2">ShortMessengerFormat:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($shortmessengerformat != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($shortmessengerformat != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shortmessengerformat\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -210,12 +213,12 @@
 		<FONT CLASS="normalcol" SIZE="2">Pictures:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($pictures != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($pictures != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_pictures\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -223,12 +226,12 @@
 		<FONT CLASS="normalcol" SIZE="2">Checkpic:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($checkpic != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($checkpic != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_checkpic\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -236,12 +239,12 @@
 		<FONT CLASS="normalcol" SIZE="2">ShrinkImages:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($shrinkimages != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($shrinkimages != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shrinkimages\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -265,12 +268,12 @@
 		<FONT CLASS="normalcol" SIZE="2">ShowSmileys:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($showsmileys != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($showsmileys != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showsmileys\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
   <TR CLASS="tablerow1">
@@ -278,12 +281,12 @@
 		<FONT CLASS="normalcol" SIZE="2">ShowOptions:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($showoptions != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($showoptions != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showoptions\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -291,12 +294,12 @@
 		<FONT CLASS="normalcol" SIZE="2">ShowHelp:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($showhelp != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($showhelp != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showhelp\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -304,12 +307,12 @@
 		<FONT CLASS="normalcol" SIZE="2">ShortHelpFormat:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($shorthelpformat != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($shorthelpformat != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_shorthelpformat\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -317,12 +320,12 @@
 		<FONT CLASS="normalcol" SIZE="2">ShowLocation:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($showlocation != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($showlocation != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_showlocation\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
   <TR CLASS="tablerow1">
@@ -330,12 +333,12 @@
 		<FONT CLASS="normalcol" SIZE="2">PreviewChecked:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($previewchecked != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($previewchecked != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_previewchecked\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
   <TR CLASS="tablerow1">
@@ -343,12 +346,12 @@
 		<FONT CLASS="normalcol" SIZE="2">EmotionChecked:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($emotionchecked != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($emotionchecked != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_emotionchecked\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
   <TR CLASS="tablerow1">
@@ -356,12 +359,12 @@
 		<FONT CLASS="normalcol" SIZE="2">NewDateOnEdit:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($newdateonedit != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($newdateonedit != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_newdateonedit\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -377,11 +380,11 @@
 		<FONT CLASS="normalcol" SIZE="2">DateFormat:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($dateformat != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">MM:DD:YY&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">DD:MM:YY</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">MM:DD:YY&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">DD:MM:YY</FONT><P>";
+<?php
+if($dateformat != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">MM:DD:YY&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">DD:MM:YY</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">MM:DD:YY&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_dateformat\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">DD:MM:YY</FONT><P>";
 		?>
 		</TD>
 	</TR>
@@ -422,12 +425,12 @@
 		<FONT CLASS="normalcol" SIZE="2">PassForNewEntries:&nbsp;</FONT><P>
 		</TD>
 		<TD CLASS="normalcol" ALIGN="left" VALIGN="top" WIDTH="50%">
-		<?php
-			if ($passfornewentries != 0)
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-			else
-				echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
-		?>
+<?php
+if($passfornewentries != 0)
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" CHECKED VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+else
+    echo "<FONT CLASS=\"normalcol\" SIZE=\"2\">&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" VALUE=\"1\" ONFOCUS=\"filter:blur()\">ON&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"radio\" NAME=\"_passfornewentries\" CHECKED VALUE=\"0\" ONFOCUS=\"filter:blur()\">OFF</FONT><P>";
+?>
 		</TD>
 	</TR>
 	<TR CLASS="tablerow1">
@@ -464,6 +467,5 @@
 	</TD>
 </TR>
 </TABLE>
-
 </BODY>
 </HTML>

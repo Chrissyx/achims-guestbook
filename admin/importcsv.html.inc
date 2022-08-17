@@ -1,13 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <HTML>
 <HEAD>
 	<TITLE>Guestbook - Import CSV-File</TITLE>
 	<LINK HREF="../guestbook.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
-
 <BODY>
-
 <FORM ACTION="admin.php" name="input" METHOD="post">
 <INPUT TYPE="hidden" NAME="login" VALUE="<?php echo $login; ?>">
 <INPUT TYPE="hidden" NAME="act" VALUE="<?php echo $act; ?>">
@@ -287,8 +284,7 @@
 	</TABLE>
 	</TD>
 	<TD CLASS="header" WIDTH="5%">&nbsp;</TD>
-</TR>	
+</TR>
 </TABLE></FORM>
-
 </BODY>
 </HTML>

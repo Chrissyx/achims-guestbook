@@ -1,13 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <HTML>
 <HEAD>
 	<TITLE>Guestbook - Delete Entry</TITLE>
 	<LINK HREF="../guestbook.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
-
 <BODY>
-
 <FORM ACTION="admin.php" METHOD="post">
 <INPUT TYPE="hidden" NAME="login" VALUE="<?php echo $login; ?>">
 <INPUT TYPE="hidden" NAME="act" VALUE="<?php echo $act; ?>">
@@ -49,6 +46,5 @@
 	</TD>
 </TR>
 </TABLE></FORM>
-
 </BODY>
 </HTML>

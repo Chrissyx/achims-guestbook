@@ -8,7 +8,6 @@
 	<TITLE><?php echo $this->messages[19]; ?></TITLE>
 	<LINK HREF="guestbook.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
-
 <TABLE ALIGN="center" BORDER="0" CELLSPACING="0" CELLPADDING="1" MARGIN="1" WIDTH="90%">
 <TR>
 	<TD CLASS="border1">
@@ -27,20 +26,20 @@
      		<TD CLASS="table1">
         	<DIV CLASS="number">1</DIV><P>
         	<DIV CLASS="name"><?php echo $newname; ?><P><BR>
-        	<?php
-						if ($newmail != "")
-							echo "<A HREF=\"mailto:$newmail\"><IMG BORDER=\"0\" SRC=\"gif/email.gif\" HEIGHT=\"16\" WIDTH=\"33\"></IMG></A>";
-						if ($newurl != "")
-							echo "&nbsp;&nbsp;<A HREF=\"$newurl\" TARGET=\"_blank\"><IMG BORDER=\"0\" SRC=\"gif/home.gif\" HEIGHT=\"16\" WIDTH=\"32\"></IMG></A><BR>";
-						if ($newicq != "")
-							echo "<A HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";	
-						if ($newaim != "")
-							echo "&nbsp;&nbsp;<A HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";
-						if ($newyim != "")
-							echo "&nbsp;&nbsp;<A HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$newyim&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";	
-						if ($newmsn != "")
-							echo "&nbsp;&nbsp;<A HREF=\"javascript:void(0);\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newmsn\"></IMG></A><BR>";
-					?>
+<?php
+if($newmail != "")
+    echo "<A HREF=\"mailto:$newmail\"><IMG BORDER=\"0\" SRC=\"gif/email.gif\" HEIGHT=\"16\" WIDTH=\"33\"></IMG></A>";
+if($newurl != "")
+    echo "&nbsp;&nbsp;<A HREF=\"$newurl\" TARGET=\"_blank\"><IMG BORDER=\"0\" SRC=\"gif/home.gif\" HEIGHT=\"16\" WIDTH=\"32\"></IMG></A><BR>";
+if($newicq != "")
+    echo "<A HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";
+if($newaim != "")
+    echo "&nbsp;&nbsp;<A HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";
+if($newyim != "")
+    echo "&nbsp;&nbsp;<A HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$newyim&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";
+if($newmsn != "")
+    echo "&nbsp;&nbsp;<A HREF=\"javascript:void(0);\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newmsn\"></IMG></A><BR>";
+?>
 					</DIV>
         	</TD>
         	<TD CLASS="table2">
@@ -55,7 +54,7 @@
 			<TABLE BORDER="0" ALIGN="left" CELLPADDING="2" CELLSPACING="1" WIDTH="100%">
 			<TR>
 				<TD WIDTH="20%">
-				<FORM ACTION="guestbook.php<?php global $lang; if (isset($lang)) echo "?lang=".$lang; ?>" METHOD="post">
+				<FORM ACTION="guestbook.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>" METHOD="post">
 				<INPUT TYPE="hidden" NAME="act" VALUE="write">
 				<INPUT TYPE="hidden" NAME="pre" VALUE="yes">
 				<INPUT TYPE="hidden" NAME="presave" VALUE="yes">
@@ -64,7 +63,7 @@
 				<INPUT TYPE="submit" VALUE="<?php echo $this->messages[16]; ?>" ONFOCUS="filter:blur()">&nbsp;&nbsp;&nbsp;&nbsp;
 				</TD></FORM>
 				<TD WIDTH="80%">
-				<FORM ACTION="guestbook.php<?php global $lang; if (isset($lang)) echo "?lang=".$lang; ?>" METHOD="post">
+				<FORM ACTION="guestbook.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>" METHOD="post">
 				<INPUT TYPE="hidden" NAME="act" VALUE="new">
 				<INPUT TYPE="hidden" NAME="newname" VALUE="<?php echo $this->newname; ?>">
 				<INPUT TYPE="hidden" NAME="newmail" VALUE="<?php echo $this->newmail; ?>">
@@ -81,13 +80,12 @@
 			</TABLE>
 			</TD>
 		</TR>
-		</TABLE>		
+		</TABLE>
 		</TD>
 	</TR>
 	</TABLE>
 	</TD>
 </TR>
 </TABLE>
-
 </BODY>
 </HTML>
