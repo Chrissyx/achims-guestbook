@@ -575,18 +575,19 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
 
             fseek($output, 0, SEEK_END);    #fix for windows?!?!
             $position = (string) ftell($output);
-            fputs($output, rtrim("name=".$newname) . "\r\n");
-            fputs($output, rtrim("mail=".$newmail) . "\r\n");
-            fputs($output, rtrim("icq=".$newicq) . "\r\n");
-            fputs($output, rtrim("aim=".$newaim) . "\r\n");
-            fputs($output, rtrim("yim=".$newyim) . "\r\n");
-            fputs($output, rtrim("msn=".$newmsn) . "\r\n");
-            fputs($output, rtrim("loc=".$newloc) . "\r\n");
-            fputs($output, rtrim("url=".$newurl) . "\r\n");
-            fputs($output, rtrim("text=".$newtext) . "\r\n");
-            fputs($output, rtrim("date=".$newdate) . "\r\n");
-            fputs($output, rtrim("ip=".$newip) . "\r\n");
+            fputs($output, rtrim("name=" . $newname) . "\r\n");
+            fputs($output, rtrim("mail=" . $newmail) . "\r\n");
+            fputs($output, rtrim("icq=" . $newicq) . "\r\n");
+            fputs($output, rtrim("aim=" . $newaim) . "\r\n");
+            fputs($output, rtrim("yim=" . $newyim) . "\r\n");
+            fputs($output, rtrim("msn=" . $newmsn) . "\r\n");
+            fputs($output, rtrim("loc=" . $newloc) . "\r\n");
+            fputs($output, rtrim("url=" . $newurl) . "\r\n");
+            fputs($output, rtrim("text=" . $newtext) . "\r\n");
+            fputs($output, rtrim("date=" . $newdate) . "\r\n");
+            fputs($output, rtrim("ip=" . $newip) . "\r\n");
 
+            $dummy = '';
             for($i = strlen($position); $i < $indexsize; $i++)
                 $dummy .= "0";
             $position = $dummy.$position;
@@ -602,7 +603,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
                 if(isset($lang))
                     header("Location: ../guestbook.php?act=show&page=$page&lang=$lang");
                 else
-                    header("Location: ../guestbook.php?act=show&amp;page=$page");
+                    header("Location: ../guestbook.php?act=show&page=$page");
             }
             else
             {
@@ -953,7 +954,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             }
             fputs($output, rtrim("\t\$adminmail = \"$_adminmail\";") . "\r\n");
             fputs($output, rtrim("\t\$moderatormail = \"$_moderatormail\";") . "\r\n");
-            fputs($output, rtrim("\t\$passfornewentries = \"$_passfornewentries\";") . "\r\n");
+            fputs($output, rtrim("\t\$passfornewentries = $_passfornewentries;") . "\r\n");
             fputs($output, rtrim("\t\$cookielifetime = $_cookielifetime;") . "\r\n");
             fputs($output, rtrim("\t\$datapath = \"$_datapath\";") . "\r\n");
             fputs($output, rtrim("?>"));
@@ -983,6 +984,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
 
             mt_srand((double)microtime() * 1000000);
             $random = mt_rand(0, 1000);
+            $random1 = mt_rand(0, 1000);
             while(file_exists("../temp/temp" . $random . ".dat"))
             {
                 $random = mt_rand(0, 1000);

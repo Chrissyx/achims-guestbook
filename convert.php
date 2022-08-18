@@ -41,9 +41,9 @@ for($i = 0; $i < 2; $i++)
 {
     $dummy1 = fgets($input1, 1024);
 }
-if(substr($dummy1, 0, 3) != yim)
+if(substr($dummy1, 0, 3) != 'yim')
 {
-    if(substr($dummy, 0, 3) != icq)
+    if(substr($dummy, 0, 3) != 'icq')
         $old = 1;
     else
         $old = 0;

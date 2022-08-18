@@ -85,7 +85,7 @@
 	<TD CLASS="normalcol">
 	<FONT SIZE="2">
 <?php
-switch($this->language)
+switch($language)
 {
     case "ger":
 	require("../location_ger.php");
@@ -143,7 +143,7 @@ reset($smileylist);
 
 $count = 0;
 foreach($smileylist as $key => $value)
-    if($count < $limitshownsmileylist))
+    if($count < $limitshownsmileylist)
     {
         if($count != 0 && ($count % 20) == 0)
             echo "<BR>";

@@ -8,7 +8,7 @@
 <FORM ACTION="admin.php" METHOD="post">
 <INPUT TYPE="hidden" NAME="login" VALUE="<?php echo $login; ?>">
 <INPUT TYPE="hidden" NAME="act" VALUE="<?php echo $act; ?>">
-<INPUT TYPE="hidden" NAME="page" VALUE="<?php echo $page; ?>">
+<INPUT TYPE="hidden" NAME="page" VALUE="<?php global $page; echo $page; ?>">
 
 <TABLE BORDER="0" ALIGN="center" CELLPADDING="3" CELLSPACING="1" WIDTH="50%">
 <TR CLASS="tableheader">

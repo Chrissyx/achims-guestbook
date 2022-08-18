@@ -15,7 +15,7 @@
 <TR HEIGHT="50%">
 	<TD ALIGN="middle" VALIGN="bottom" HEIGHT="8">
 	<FONT SIZE="2" CLASS="header">
-	[ <A CLASS="tablelink" HREF="guestbook.php?act=search<?php global $lang; if(isset($lang)) echo "&lang=" . $lang; ?>" ONFOCUS="filter:blur()"><?php echo $this->messages[25]; ?></A> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	[ <A CLASS="tablelink" HREF="guestbook.php?act=search<?php global $lang; if(isset($lang)) echo "&amp;lang=" . $lang; ?>" ONFOCUS="filter:blur()"><?php echo $this->messages[25]; ?></A> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	[ <A CLASS="tablelink" HREF="guestbook.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>" ONFOCUS="filter:blur()"><?php echo $this->messages[18]; ?></A> ]</FONT>
 	</TD>
 </TR>

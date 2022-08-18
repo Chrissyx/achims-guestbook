@@ -314,7 +314,7 @@ class CInput extends CTools
 				fputs($output, rtrim("ip=") . "\r\n");
 			}
 
-            global $dummy;
+            $dummy = '';
 			for($i = strlen($position); $i < $this->indexsize; $i++)
 				$dummy .= "0";
 			$position = $dummy . $position;
