@@ -128,11 +128,11 @@ if(md5($GuestbookAdmin) == $this->adminpass || md5($GuestbookModerator) == $this
     }
     echo "\t[ <A CLASS=\"tablelink\" HREF=\"admin/admin.php?act=changeentry&amp;entry=$entrynum&amp;page=$this->page";
     if(isset($lang))
-        echo "&lang=".$lang;
+        echo "&amp;lang=" . $lang;
     echo "\" ONFOCUS=\"filter:blur()\">Edit</A> ]&nbsp;&nbsp;&nbsp;&nbsp;\n";
     echo "\t[ <A CLASS=\"tablelink\" HREF=\"admin/admin.php?act=deleteentry&amp;entry=$entrynum&amp;page=$this->page";
     if(isset($lang))
-        echo "&lang=".$lang;
+        echo "&amp;lang=" . $lang;
     echo "\" ONFOCUS=\"filter:blur()\">Delete</A> ]</FONT>\n";
     echo "\t</TD>\n";
     echo "</TR>\n";

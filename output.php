@@ -161,12 +161,10 @@ class COutput
 		require("head.html.inc");
 	}
 
-
 	function Output_Foot()
     {
 		require("foot.html.inc");
 	}
-
 
 	function Output_Data()
     {

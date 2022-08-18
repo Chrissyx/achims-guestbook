@@ -17,21 +17,21 @@
 			echo $this->datacount;
 		?>
 		<?php echo $this->messages[2]; ?></FONT></DIV><P>
-		<DIV ALIGN="right"><FONT SIZE="1" CLASS="header">[ <A CLASS="normlink" HREF="guestbook.php?act=show<?php global $lang; if(isset($lang)) echo "&lang=" . $lang; ?>" ONFOCUS="filter:blur()"><?php echo $this->messages[3]; ?></A> ]
+		<DIV ALIGN="right"><FONT SIZE="1" CLASS="header">[ <A CLASS="normlink" HREF="guestbook.php?act=show<?php global $lang; if(isset($lang)) echo "&amp;lang=" . $lang; ?>" ONFOCUS="filter:blur()"><?php echo $this->messages[3]; ?></A> ]
 		[ <A CLASS="normlink" HREF="guestbook.php?act=search
 <?php
 global $lang;
 
 if($this->entrypos > -1)
 {
-    echo "&phrase=" . $this->phrase . "&page=" . $this->page . "&entrypos=" . $this->entrypos;
+    echo "&amp;phrase=" . $this->phrase . "&amp;page=" . $this->page . "&amp;entrypos=" . $this->entrypos;
 }
 
 if(isset($lang))
-    echo "&lang=" . $lang;
+    echo "&amp;lang=" . $lang;
 ?>
 		" ONFOCUS="filter:blur()"><?php echo $this->messages[25]; ?></A> ]
-		[ <A CLASS="normlink" HREF="guestbook.php?act=new<?php global $lang; if(isset($lang)) echo "&lang=" . $lang; ?>" ONFOCUS="filter:blur()"><?php echo $this->messages[4]; ?></A> ]</FONT></DIV>
+		[ <A CLASS="normlink" HREF="guestbook.php?act=new<?php global $lang; if(isset($lang)) echo "&amp;lang=" . $lang; ?>" ONFOCUS="filter:blur()"><?php echo $this->messages[4]; ?></A> ]</FONT></DIV>
 		</TD>
 	</TR>
 	<TR CLASS="tableheader">
@@ -50,7 +50,7 @@ else
 {
     echo "<FONT SIZE=\"1\" CLASS=\"header\">[ <A CLASS=\"normlink\" HREF=\"guestbook.php?act=show&amp;page=" . ($this->page - 1);
     if(isset($lang))
-        echo "&lang=" . $lang;
+        echo "&amp;lang=" . $lang;
     echo "\" ONFOCUS=\"filter:blur()\">" . $this->messages[5] . "</A> ]</FONT>\n";
 }
 ?>
@@ -99,7 +99,7 @@ if($allpages > 3)
             {
                 echo "<FONT SIZE=\"1\" CLASS=\"header\">[ <A CLASS=\"normlink\" HREF=\"guestbook.php?act=show&amp;page=$range[$i]";
                 if(isset($lang))
-                    echo "&lang=".$lang;
+                    echo "&amp;lang=" . $lang;
                 echo "\" ONFOCUS=\"filter:blur()\">$range[$i]</A> ]&nbsp;</FONT>\n";
             }
         }
@@ -115,7 +115,7 @@ if($this->datacount > ($this->page * $this->entriesperpage))
 {
     echo "<FONT SIZE=\"1\" CLASS=\"header\">[ <A CLASS=\"normlink\" HREF=\"guestbook.php?act=show&amp;page=" . ($this->page + 1);
     if(isset($lang))
-        echo "&lang=" . $lang;
+        echo "&amp;lang=" . $lang;
     echo "\" ONFOCUS=\"filter:blur()\">" . $this->messages[6] . "</A> ]</FONT>\n";
 }
 else

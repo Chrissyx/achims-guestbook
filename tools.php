@@ -232,7 +232,6 @@ class CTools
 		}
 	}
 
-
 	function Check_Empty()
     {
 		if($this->newname == "")

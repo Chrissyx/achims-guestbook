@@ -232,9 +232,9 @@ elseif($act == "write")
         #save data without preview
         WriteEntry($emotion);
         if(isset($lang))
-            header ("Location: guestbook.php?act=show&lang=$lang");
+            header("Location: guestbook.php?act=show&lang=$lang");
         else
-            header ("Location: guestbook.php?act=show");
+            header("Location: guestbook.php?act=show");
     }
 }
 elseif($act == "search")

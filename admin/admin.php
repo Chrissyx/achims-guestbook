@@ -262,7 +262,6 @@ if(!file_exists("../".$datapath."/lock.lck"))
     fclose($lock);
 }
 
-
 function Parse_HTML(&$formstring, $htmltag, $delete = false)
 {
     $i = $size = 0;
@@ -361,7 +360,6 @@ function Parse_HTML(&$formstring, $htmltag, $delete = false)
         $dummy = strtolower($formstring);
     }
 }
-
 
 function Format_String(&$formstring, $emotion, $what)
 {

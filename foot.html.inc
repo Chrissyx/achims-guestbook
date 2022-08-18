@@ -14,7 +14,7 @@ else
 {
     echo "<FONT SIZE=\"1\" CLASS=\"header\">[ <A CLASS=\"normlink\" HREF=\"guestbook.php?act=show&amp;page=" . ($this->page - 1);
     if(isset($lang))
-        echo "&lang=".$lang;
+        echo "&amp;lang=" . $lang;
     echo "\" ONFOCUS=\"filter:blur()\">" . $this->messages[5] . "</A> ]</FONT>\n";
 }
 ?>
@@ -63,7 +63,7 @@ if($allpages > 3)
             {
                 echo "<FONT SIZE=\"1\" CLASS=\"header\">[ <A CLASS=\"normlink\" HREF=\"guestbook.php?act=show&amp;page=$range[$i]";
                 if(isset($lang))
-                    echo "&lang=" . $lang;
+                    echo "&amp;lang=" . $lang;
                 echo "\" ONFOCUS=\"filter:blur()\">$range[$i]</A> ]&nbsp;</FONT>\n";
             }
         }
@@ -79,7 +79,7 @@ if($this->datacount > ($this->page * $this->entriesperpage))
 {
     echo "<FONT SIZE=\"1\" CLASS=\"header\">[ <A CLASS=\"normlink\" HREF=\"guestbook.php?act=show&amp;page=" . ($this->page + 1);
 	if(isset($lang))
-        echo "&lang=" . $lang;
+        echo "&amp;lang=" . $lang;
 	echo "\" ONFOCUS=\"filter:blur()\">" . $this->messages[6] . "</A> ]</FONT>\n";
 }
 else
