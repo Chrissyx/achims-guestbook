@@ -177,15 +177,16 @@ if($this->showsmileys != 0)
 
     $count = 0;
     $lastvalue = 0;
-    while((list($key, $value) = each($smileylist)) && ($count < $limitshownsmileylist))
-    {
-        if($count != 0 && ($count % 20) == 0)
-            echo "<BR>";
-	    if($value != $lastvalue)
-            echo "<A HREF=\"javascript:SetSmiley('" . $key . "')\" ONFOCUS=\"filter:blur();\">" . stripslashes($value) . "</A>";
-	    $lastvalue = $value;
-	    $count++;
-    }
+    foreach($smileylist as $key => $value)
+        if($count < $limitshownsmileylist)
+        {
+            if($count != 0 && ($count % 20) == 0)
+                echo "<BR>";
+	        if($value != $lastvalue)
+                echo "<A HREF=\"javascript:SetSmiley('" . $key . "')\" ONFOCUS=\"filter:blur();\">" . stripslashes($value) . "</A>";
+	        $lastvalue = $value;
+	        $count++;
+        }
 ?>
 	</FONT>
 	</TD>
@@ -248,7 +249,7 @@ if($this->showhelp != 0)
         include('help_' . $this->language . '.html.inc');
     elseif(file_exists('help_eng.html.inc'))
         include('help_eng.html.inc');
+}
 ?>
-
 </BODY>
 </HTML>

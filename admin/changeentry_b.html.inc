@@ -142,13 +142,14 @@ require("../smileys.php");
 reset($smileylist);
 
 $count = 0;
-while((list($key, $value) = each($smileylist)) && ($count < $limitshownsmileylist))
-{
-    if($count != 0 && ($count % 20) == 0)
-        echo "<BR>";
-    echo "<A HREF=\"javascript:SetSmiley('" . $key . "')\" ONFOCUS=\"filter:blur()\">" . str_replace("gif/", "../gif/", stripslashes($value)) . "</A>";
-    $count++;
-}
+foreach($smileylist as $key => $value)
+    if($count < $limitshownsmileylist))
+    {
+        if($count != 0 && ($count % 20) == 0)
+            echo "<BR>";
+        echo "<A HREF=\"javascript:SetSmiley('" . $key . "')\" ONFOCUS=\"filter:blur()\">" . str_replace("gif/", "../gif/", stripslashes($value)) . "</A>";
+        $count++;
+    }
 ?>
 	</FONT>
 	</TD>

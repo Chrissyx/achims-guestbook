@@ -368,8 +368,8 @@ function Format_String(&$formstring, $emotion, $what)
     if($what == "text")
     {
         #parse pseudo html commands and replace it with real html commands
-        $formstring = eregi_replace("\[BR\]", "<BR>", $formstring);
-        $formstring = eregi_replace("\[P\]", "<P>", $formstring);
+        $formstring = str_ireplace("\[BR\]", "<BR>", $formstring);
+        $formstring = str_ireplace("\[P\]", "<P>", $formstring);
 
         if($emotion == "yes")
         {
@@ -377,9 +377,9 @@ function Format_String(&$formstring, $emotion, $what)
 
             reset($smileylist);
 
-            while(list($key, $value) = each($smileylist))
+            foreach($smileylist as $key => $value)
             {
-                $formstring = eregi_replace($key, $value, $formstring);
+                $formstring = str_ireplace($key, $value, $formstring);
             }
         }
 
@@ -397,9 +397,9 @@ function Format_String(&$formstring, $emotion, $what)
         Parse_HTML($formstring, "MAIL");
         Parse_HTML($formstring, "PIC");
 
-        $formstring = eregi_replace("<BR>\r\n", "<BR>", $formstring);
-        $formstring = eregi_replace("<P>\r\n", "<P>", $formstring);
-        $formstring = ereg_replace("\r\n", "<BR>", $formstring);
+        $formstring = str_ireplace("<BR>\r\n", "<BR>", $formstring);
+        $formstring = str_ireplace("<P>\r\n", "<P>", $formstring);
+        $formstring = str_replace("\r\n", "<BR>", $formstring);
     }
 
     if($what == "url")
@@ -417,9 +417,9 @@ function Format_String1(&$formstring)
 
     reset($smileylist);
 
-    while(list($key, $value) = each($smileylist))
+    foreach($smileylist as $key => $value)
     {
-        $formstring = eregi_replace($value, stripslashes($key), $formstring);
+        $formstring = str_ireplace($value, stripslashes($key), $formstring);
     }
     $formstring = str_replace("&", "&amp;", $formstring);
 }
@@ -506,7 +506,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             $date = rtrim(stripslashes(substr(fgets($input, 1024), 5)));
             $ip = rtrim(stripslashes(substr(fgets($input, 1024), 3)));
             $text .= "<BR>--------------------<BR>";
-            $text = ereg_replace("<BR>", "\r\n", $text);
+            $text = str_replace("<BR>", "\r\n", $text);
 
             fclose($input);
 
@@ -526,7 +526,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
         {
             if($newdateonedit != 0)
             {
-                $fixedtime = ($fixedtime < -24) ? -24 : ($fixedtime > 24) ? 24 : $fixedtime;
+                $fixedtime = ($fixedtime < -24) ? -24 : (($fixedtime > 24) ? 24 : $fixedtime);
                 if($dateformat > 0)
                 {
                     $newdate = strftime("%m.%d.%Y %H:%M", time() + ($fixedtime * 3600));

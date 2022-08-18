@@ -119,7 +119,7 @@ require("smileys.php");
 reset($smileylist);
 
 $count = 0;
-while((list($key, $value) = each($smileylist)))
+foreach($smileylist as $key => $value)
 {
     if($count != 0 && ($count % 20) == 0)
         echo "<BR>";

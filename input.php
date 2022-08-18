@@ -21,9 +21,9 @@
  */
 class CInput extends CTools
 {
-	function CInput($emotion = "no")
+	function __construct($emotion = "no")
     {
-		$this->CTools($emotion);
+		parent::__construct($emotion);
 	}
 
 
@@ -75,7 +75,7 @@ class CInput extends CTools
 
 			# is the actual ip in the list and not to old?
 			$position = 0;
-			while(list($ip, $time) = each($data))
+            foreach($data as $ip => $time)
             {
 	    	    if($_SERVER['REMOTE_ADDR'] == $ip && (time() - $this->floodwait) < $time)
                 {
@@ -91,7 +91,7 @@ class CInput extends CTools
 			$logfile = fopen("temp/ip.log", "w") or die();
 
 			reset($data);
-			while(list($ip, $time) = each($data))
+			foreach($data as $ip => $time)
             {
 	    	    fputs($logfile, rtrim($ip) . "\r\n");
 				fputs($logfile, rtrim($time) . "\r\n");
@@ -120,36 +120,37 @@ class CInput extends CTools
 
         # ip filterfunction
         $different = true;
-        while((list($linenumber, $ip) = each($ipfilter)) && $different == true)
-        {
-            $ip = trim($ip);
-            $ip = explode(".", $ip);
-            $remoteip = explode(".", $_SERVER['REMOTE_ADDR']);
-
-            for($i = 0; $i < count($ip); $i++)
+        foreach($ipfilter as $linenumber => $ip)
+            if($different)
             {
-                // check for '*'
-                if($ip[$i] == '*')
-                    $ip[$i] = $remoteip[$i];
+                $ip = trim($ip);
+                $ip = explode(".", $ip);
+                $remoteip = explode(".", $_SERVER['REMOTE_ADDR']);
 
-                $ip[$i] = str_pad($ip[$i], 3, "0", STR_PAD_LEFT);
-                $remoteip[$i] = str_pad($remoteip[$i], 3, "0", STR_PAD_LEFT);
-
-                // check for '?'
-                while(is_integer($pos = strpos($ip[$i], '?')) && $pos >= 0)
+                for($i = 0; $i < count($ip); $i++)
                 {
-                    $ip[$i] = substr_replace($ip[$i], " ", $pos, 1);
-                    $remoteip[$i] = substr_replace($remoteip[$i], " ", $pos, 1);
+                    // check for '*'
+                    if($ip[$i] == '*')
+                        $ip[$i] = $remoteip[$i];
+
+                    $ip[$i] = str_pad($ip[$i], 3, "0", STR_PAD_LEFT);
+                    $remoteip[$i] = str_pad($remoteip[$i], 3, "0", STR_PAD_LEFT);
+
+                    // check for '?'
+                    while(is_integer($pos = strpos($ip[$i], '?')) && $pos >= 0)
+                    {
+                        $ip[$i] = substr_replace($ip[$i], " ", $pos, 1);
+                        $remoteip[$i] = substr_replace($remoteip[$i], " ", $pos, 1);
+                    }
                 }
+
+                $ip = implode(".", $ip);
+                $remoteip = implode(".", $remoteip);
+
+                // is the ip different in any case?
+                if($ip == $remoteip)
+                    $different = false;
             }
-
-            $ip = implode(".", $ip);
-            $remoteip = implode(".", $remoteip);
-
-            // is the ip different in any case?
-            if($ip == $remoteip)
-                $different = false;
-        }
 
         // should the ip filtered out?
         if(!$different)
@@ -170,7 +171,7 @@ class CInput extends CTools
 
 		# ignore filterfunction
 		$different = true;
-		while(list($linenumber, $ignore) = each($ignorefilter))
+		foreach($ignorefilter as $linenumber => $ignore)
         {
 			$ignore = trim($ignore);
 			if(stristr($dummy, $ignore))
@@ -313,6 +314,7 @@ class CInput extends CTools
 				fputs($output, rtrim("ip=") . "\r\n");
 			}
 
+            global $dummy;
 			for($i = strlen($position); $i < $this->indexsize; $i++)
 				$dummy .= "0";
 			$position = $dummy . $position;

@@ -4,7 +4,7 @@
 			<TR CLASS="tableheader">
 				<TD ALIGN="left" CLASS="header" WIDTH="25%" NOWRAP="nowrap">
 <?php
-echo $lang;
+global $lang;
 
 if($this->page == 1)
 {

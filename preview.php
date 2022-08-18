@@ -21,11 +21,10 @@
  */
 class CPreview extends CTools
 {
-	function CPreview($emotion = "no")
+	function __construct($emotion = "no")
     {
-		$this->CTools($emotion);
+		parent::__construct($emotion);
 	}
-
 
 	function Show_Preview(&$newname, &$newmail, &$newicq, &$newaim, &$newyim, &$newmsn, &$newloc, &$newurl, &$newtext)
     {
@@ -88,7 +87,7 @@ class CPreview extends CTools
 		$this->newloc = str_replace("&", "&amp;amp;", str_replace("\"", "&#34;", stripslashes($newloc)));
 		$this->newurl = str_replace("&", "&amp;amp;", str_replace("\"", "&#34;", stripslashes($newurl)));
 		$this->newtext = str_replace("&", "&amp;amp;", str_replace("\"", "&#34;", stripslashes($newtext)));
-		$this->newtext = eregi_replace("\[BR\]", "\r\n", $this->newtext);
+		$this->newtext = str_ireplace("\[BR\]", "\r\n", $this->newtext);
 		$this->Check_Empty();
 
 		$this->Format_String($newname, "name");

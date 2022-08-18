@@ -168,15 +168,16 @@ $smileylist = array_unique($smileylist);
 reset($smileylist);
 
 $count = 0;
-while((list($key, $value) = each($smileylist)) && ($count < $limitshownsmileylist))
-{
-    if($count != 0 && ($count % 20) == 0)
-        echo "<BR>";
-    if($value != $lastvalue)
-        echo "<A HREF=\"javascript:SetSmiley('" . $key . "')\" ONFOCUS=\"filter:blur();\">" . stripslashes($value) . "</A>";
-    $lastvalue = $value;
-    $count++;
-}
+foreach($smileylist as $key => $value)
+    if($count < $limitshownsmileylist)
+    {
+        if($count != 0 && ($count % 20) == 0)
+            echo "<BR>";
+        if($value != $lastvalue)
+            echo "<A HREF=\"javascript:SetSmiley('" . $key . "')\" ONFOCUS=\"filter:blur();\">" . stripslashes($value) . "</A>";
+        $lastvalue = $value;
+        $count++;
+    }
 ?>
 	</FONT>
 	</TD>

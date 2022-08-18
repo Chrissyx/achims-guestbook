@@ -67,7 +67,7 @@ class CTools
 	var $previewchecked;
     var $emotionchecked;
 
-	function CTools($emotion = "no")
+	function __construct($emotion = "no")
     {
 		global $lang;
 
@@ -104,7 +104,7 @@ class CTools
 		$this->adminmail = $adminmail;
 		$this->moderatormail = $moderatormail;
 		$this->passfornewentries = $passfornewentries;
-		$this->fixedtime = ($fixedtime < -24) ? -24 : ($fixedtime > 24) ? 24 : $fixedtime;
+		$this->fixedtime = ($fixedtime < -24) ? -24 : (($fixedtime > 24) ? 24 : $fixedtime);
 		$this->dateformat = $dateformat;
 		$this->datapath = $datapath;
 		$this->login = $adminpass;
@@ -244,7 +244,7 @@ class CTools
 			$this->Formular_Show(1);
 			exit();
 		}
-		elseif($this->newmail != "" && !eregi("^([-.]?[0-9_a-z])([-.]?[0-9_a-z])*@[0-9_a-z]([-._]?[0-9_a-z])*\\.[a-z]{2,4}$", $this->newmail))
+		elseif($this->newmail != "" && !preg_match("/^([-.]?[0-9_a-z])([-.]?[0-9_a-z])*@[0-9_a-z]([-._]?[0-9_a-z])*\\.[a-z]{2,4}$/i", $this->newmail))
         {
 			echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">";
 			echo "<HTML><HEAD>";
@@ -465,7 +465,7 @@ class CTools
 
 		if($what == "msn")
         {
-			if(!eregi("^([-.]?[0-9_a-z])([-.]?[0-9_a-z])*@[0-9_a-z]([-._]?[0-9_a-z])*\\.[a-z]{2,4}$", $formstring))
+			if(!preg_match("/^([-.]?[0-9_a-z])([-.]?[0-9_a-z])*@[0-9_a-z]([-._]?[0-9_a-z])*\\.[a-z]{2,4}$/i", $formstring))
                 $formstring = "";
 		}
 
@@ -601,8 +601,8 @@ class CTools
 			}
 
 			#parse pseudo html commands and replace it with real html commands
-			$formstring = eregi_replace("\[BR\]", "<BR>", $formstring);
-			$formstring = eregi_replace("\[P\]", "<P>", $formstring);
+			$formstring = str_ireplace("\[BR\]", "<BR>", $formstring);
+			$formstring = str_ireplace("\[P\]", "<P>", $formstring);
 			$this->Parse_HTML($formstring, "B");
 			$this->Parse_HTML($formstring, "I");
 			$this->Parse_HTML($formstring, "U");
@@ -619,8 +619,8 @@ class CTools
         else
         {
 			#parse pseudo html commands and delete them
-			$formstring = eregi_replace("\[BR\]", "", $formstring);
-			$formstring = eregi_replace("\[P\]", "", $formstring);
+			$formstring = str_ireplace("\[BR\]", "", $formstring);
+			$formstring = str_ireplace("\[P\]", "", $formstring);
 			$this->Parse_HTML($formstring, "B", true);
 			$this->Parse_HTML($formstring, "I", true);
 			$this->Parse_HTML($formstring, "U", true);
@@ -738,7 +738,7 @@ class CTools
 
 		if($this->word_filter != 0)
         {
-			$input = fopen($this->datapath."/wordfilter.dat", "r") or die("Can't open wordfilter.dat for reading!");
+			$input = fopen($this->datapath . "/wordfilter.dat", "r") or die("Can't open wordfilter.dat for reading!");
 
 			while(!feof($input))
             {
@@ -754,7 +754,7 @@ class CTools
 					$dummy = "";
 					for($n = 0; $n < strlen($badwords[$i]); $n++)
                         $dummy .= "*";
-					$formstring = eregi_replace($badwords[$i], $dummy, $formstring);
+					$formstring = preg_replace('/' . $badwords[$i] . '/i', $dummy, $formstring);
 				}
 			}
 		}
@@ -765,9 +765,9 @@ class CTools
 
 			reset($smileylist);
 
-			while(list($key, $value) = each($smileylist))
+            foreach($smileylist as $key => $value)
             {
-				$formstring = eregi_replace($key, $value, $formstring);
+				$formstring = str_ireplace($key, $value, $formstring);
 			}
 		}
 
@@ -781,15 +781,15 @@ class CTools
 
 		if($what == "text")
         {
-			$formstring = eregi_replace("<BR>\r\n", "<BR>", $formstring);
-			$formstring = eregi_replace("<P>\r\n", "<P>", $formstring);
+			$formstring = str_ireplace("<BR>\r\n", "<BR>", $formstring);
+			$formstring = str_ireplace("<P>\r\n", "<P>", $formstring);
 			$formstring = str_replace("\r\n", "<BR>", $formstring);
 
 			#maxline protection
 			$countlines = substr_count($formstring, "<BR>") + substr_count($formstring, "<P>");
 			if($countlines >= $this->maxlines)
             {
-				$dummy = ereg_replace("<P>", "<BR>", $formstring);
+				$dummy = str_replace("<P>", "<BR>", $formstring);
 				$countlines = $position = 0;
 				while($countlines < $this->maxlines)
                 {

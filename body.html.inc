@@ -20,7 +20,7 @@ if(in_array($entrynum, $entrypos))
             {
                 $firstpart = substr($dummy[$n], 0, $position);
                 $secondpart = substr($dummy[$n], $position + 1);
-                if(!(substr_count($firstpart, "<") > substr_count($firstpart, ">") && substr_count($secondpart, ">") > substr_count($secondpartpart, "<")))
+                if(!(substr_count($firstpart, "<") > substr_count($firstpart, ">") && substr_count($secondpart, ">") > substr_count($secondpart, "<")))
                 {
                     if(!(((strrpos($firstpart, "&") === false) ? 0 : strrpos($firstpart, "&")) > ((strrpos($firstpart, ";") === false) ? 0 : strrpos($firstpart, ";"))
                         && ((stristr($secondpart, "&") === false) ? 0 : stristr($secondpart, "&")) < ((stristr($secondpart, ";") === false) ? 0 : stristr($secondpart, ";"))))

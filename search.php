@@ -28,9 +28,9 @@ class CSearch
 	var $indexsize;
 	var $phrase;
 
-	function CSearch()
+	function __construct()
     {
-		global $lang;
+		global $lang, $phrase;
 
 		require("config.php");
 

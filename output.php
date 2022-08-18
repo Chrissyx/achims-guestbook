@@ -36,7 +36,7 @@ class COutput
 	var $datapath;
 	var $language;
 
-	function COutput($page, $entrypos, $phrase)
+	function __construct($page, $entrypos, $phrase)
     {
 		global $lang;
 
