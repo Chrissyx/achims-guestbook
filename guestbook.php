@@ -19,9 +19,6 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  */
-
-global $HTTP_GET_VARS, $HTTP_POST_VARS, $HTTP_COOKIE_VARS;
-
 function ShowEntries($page, $entrypos)
 {
     global $phrase;
@@ -33,7 +30,6 @@ function ShowEntries($page, $entrypos)
     $action = "show";
 }
 
-
 function NewEntry()
 {
     global $newname, $newmail, $newurl, $newicq, $newaim, $newyim, $newmsn, $newloc, $newtext;
@@ -44,7 +40,6 @@ function NewEntry()
     $input->Formular_Show(0, $newname, $newmail, $newurl, $newicq, $newaim, $newyim, $newmsn, $newloc, $newtext);
     unset($input);
 }
-
 
 function WriteEntry($emotion = "no", $preview = 0, $write = 0, $random = -1)
 {
@@ -72,7 +67,6 @@ function WriteEntry($emotion = "no", $preview = 0, $write = 0, $random = -1)
         $input->Write_Data($newname, $newmail, $newicq, $newaim, $newyim, $newmsn, $newloc, $newurl, $newtext, $random);
     unset($input);
 }
-
 
 function SearchEntry($next = "no")
 {
@@ -132,58 +126,58 @@ while(file_exists($datapath . "/lock.lck"))
     }
 }
 
-if(isset($HTTP_GET_VARS['act']))
-    $act = $HTTP_GET_VARS['act'];
-if(isset($HTTP_POST_VARS['act']))
-    $act = $HTTP_POST_VARS['act'];
-if(isset($HTTP_POST_VARS['write']))
-    $write = $HTTP_POST_VARS['write'];
-if(isset($HTTP_POST_VARS['what']))
-    $what = $HTTP_POST_VARS['what'];
-if(isset($HTTP_GET_VARS['page']))
-    $page = $HTTP_GET_VARS['page'];
-if(isset($HTTP_POST_VARS['page']))
-    $page = $HTTP_POST_VARS['page'];
-if(isset($HTTP_GET_VARS['phrase']))
-    $phrase = $HTTP_GET_VARS['phrase'];
-if(isset($HTTP_POST_VARS['phrase']))
-    $phrase = $HTTP_POST_VARS['phrase'];
-if(isset($HTTP_POST_VARS['next']))
-    $next = $HTTP_POST_VARS['next'];
-if(isset($HTTP_GET_VARS['entrypos']))
-    $entrypos = $HTTP_GET_VARS['entrypos'];
-if(isset($HTTP_GET_VARS['lang']))
-    $lang = $HTTP_GET_VARS['lang'];
-if(isset($HTTP_POST_VARS['pre']))
-    $pre = $HTTP_POST_VARS['pre'];
-if(isset($HTTP_POST_VARS['presave']))
-    $presave = $HTTP_POST_VARS['presave'];
-if(isset($HTTP_POST_VARS['preview']))
-    $preview = $HTTP_POST_VARS['preview'];
-if(isset($HTTP_POST_VARS['random']))
-    $random = $HTTP_POST_VARS['random'];
-if(isset($HTTP_POST_VARS['emotion']))
-    $emotion = $HTTP_POST_VARS['emotion'];
-if(isset($HTTP_POST_VARS['newname']))
-    $newname = $HTTP_POST_VARS['newname'];
-if(isset($HTTP_POST_VARS['newmail']))
-    $newmail = $HTTP_POST_VARS['newmail'];
-if(isset($HTTP_POST_VARS['newurl']))
-    $newurl = $HTTP_POST_VARS['newurl'];
-if(isset($HTTP_POST_VARS['newicq']))
-    $newicq = $HTTP_POST_VARS['newicq'];
-if(isset($HTTP_POST_VARS['newaim']))
-    $newaim = $HTTP_POST_VARS['newaim'];
-if(isset($HTTP_POST_VARS['newyim']))
-    $newyim = $HTTP_POST_VARS['newyim'];
-if(isset($HTTP_POST_VARS['newmsn']))
-    $newmsn = $HTTP_POST_VARS['newmsn'];
-if(isset($HTTP_POST_VARS['newloc']))
-    $newloc = $HTTP_POST_VARS['newloc'];
-if(isset($HTTP_POST_VARS['newtext']))
-    $newtext = $HTTP_POST_VARS['newtext'];
-if(isset($HTTP_COOKIE_VARS['GuestbookAdmin']))
-    $GuestbookAdmin = $HTTP_COOKIE_VARS['GuestbookAdmin'];
+if(isset($_GET['act']))
+    $act = $_GET['act'];
+if(isset($_POST['act']))
+    $act = $_POST['act'];
+if(isset($_POST['write']))
+    $write = $_POST['write'];
+if(isset($_POST['what']))
+    $what = $_POST['what'];
+if(isset($_GET['page']))
+    $page = $_GET['page'];
+if(isset($_POST['page']))
+    $page = $_POST['page'];
+if(isset($_GET['phrase']))
+    $phrase = $_GET['phrase'];
+if(isset($_POST['phrase']))
+    $phrase = $_POST['phrase'];
+if(isset($_POST['next']))
+    $next = $_POST['next'];
+if(isset($_GET['entrypos']))
+    $entrypos = $_GET['entrypos'];
+if(isset($_GET['lang']))
+    $lang = $_GET['lang'];
+if(isset($_POST['pre']))
+    $pre = $_POST['pre'];
+if(isset($_POST['presave']))
+    $presave = $_POST['presave'];
+if(isset($_POST['preview']))
+    $preview = $_POST['preview'];
+if(isset($_POST['random']))
+    $random = $_POST['random'];
+if(isset($_POST['emotion']))
+    $emotion = $_POST['emotion'];
+if(isset($_POST['newname']))
+    $newname = $_POST['newname'];
+if(isset($_POST['newmail']))
+    $newmail = $_POST['newmail'];
+if(isset($_POST['newurl']))
+    $newurl = $_POST['newurl'];
+if(isset($_POST['newicq']))
+    $newicq = $_POST['newicq'];
+if(isset($_POST['newaim']))
+    $newaim = $_POST['newaim'];
+if(isset($_POST['newyim']))
+    $newyim = $_POST['newyim'];
+if(isset($_POST['newmsn']))
+    $newmsn = $_POST['newmsn'];
+if(isset($_POST['newloc']))
+    $newloc = $_POST['newloc'];
+if(isset($_POST['newtext']))
+    $newtext = $_POST['newtext'];
+if(isset($_COOKIE['GuestbookAdmin']))
+    $GuestbookAdmin = $_COOKIE['GuestbookAdmin'];
 
 if(!isset($act) || $act == "" || $act == "show")
 {

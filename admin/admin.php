@@ -19,8 +19,6 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  */
-global $HTTP_GET_VARS, $HTTP_POST_VARS, $HTTP_COOKIE_VARS;
-
 ob_start();
 
 error_reporting(0);
@@ -43,177 +41,177 @@ while(file_exists("../" . $datapath . "/data.lck") || file_exists("../" . $datap
 if(!ignore_user_abort())
     ignore_user_abort(true);
 
-if(isset($HTTP_GET_VARS['act']))
-    $act = $HTTP_GET_VARS['act'];
-if(isset($HTTP_POST_VARS['act']))
-    $act = $HTTP_POST_VARS['act'];
-if(isset($HTTP_POST_VARS['login']))
-    $login = $HTTP_POST_VARS['login'];
-if(isset($HTTP_POST_VARS['store']))
-    $store = $HTTP_POST_VARS['store'];
-if(isset($HTTP_COOKIE_VARS['GuestbookAdmin']))
-    $GuestbookAdmin = $HTTP_COOKIE_VARS['GuestbookAdmin'];
-if(isset($HTTP_GET_VARS['entry']))
-    $entry = $HTTP_GET_VARS['entry'];
-if(isset($HTTP_POST_VARS['entry']))
-    $entry = $HTTP_POST_VARS['entry'];
-if(isset($HTTP_GET_VARS['page']))
-    $page = $HTTP_GET_VARS['page'];
-if(isset($HTTP_POST_VARS['page']))
-    $page = $HTTP_POST_VARS['page'];
-if(isset($HTTP_POST_VARS['warning']))
-    $warning = $HTTP_POST_VARS['warning'];
-if(isset($HTTP_GET_VARS['lang']))
-    $lang = $HTTP_GET_VARS['lang'];
-if(isset($HTTP_POST_VARS['emotion']))
-    $emotion = $HTTP_POST_VARS['emotion'];
-if(isset($HTTP_POST_VARS['newname']))
-    $newname = $HTTP_POST_VARS['newname'];
-if(isset($HTTP_POST_VARS['newmail']))
-    $newmail = $HTTP_POST_VARS['newmail'];
-if(isset($HTTP_POST_VARS['newurl']))
-    $newurl = $HTTP_POST_VARS['newurl'];
-if(isset($HTTP_POST_VARS['newicq']))
-    $newicq = $HTTP_POST_VARS['newicq'];
-if(isset($HTTP_POST_VARS['newaim']))
-    $newaim = $HTTP_POST_VARS['newaim'];
-if(isset($HTTP_POST_VARS['newyim']))
-    $newyim = $HTTP_POST_VARS['newyim'];
-if(isset($HTTP_POST_VARS['newmsn']))
-    $newmsn = $HTTP_POST_VARS['newmsn'];
-if(isset($HTTP_POST_VARS['newloc']))
-    $newloc = $HTTP_POST_VARS['newloc'];
-if(isset($HTTP_POST_VARS['newdate']))
-    $newdate = $HTTP_POST_VARS['newdate'];
-if(isset($HTTP_POST_VARS['newip']))
-    $newip = $HTTP_POST_VARS['newip'];
-if(isset($HTTP_POST_VARS['newtext']))
-    $newtext = $HTTP_POST_VARS['newtext'];
-if(isset($HTTP_POST_VARS['do']))
-    $do = $HTTP_POST_VARS['do'];
-if(isset($HTTP_POST_VARS['datapos']))
-    $datapos = $HTTP_POST_VARS['datapos'];
-if(isset($HTTP_POST_VARS['signature']))
-    $signature = $HTTP_POST_VARS['signature'];
-if(isset($HTTP_POST_VARS['first']))
-    $first = $HTTP_POST_VARS['first'];
-if(isset($HTTP_POST_VARS['last']))
-    $last = $HTTP_POST_VARS['last'];
-if(isset($HTTP_POST_VARS['wordfilter']))
-    $wordfilter = $HTTP_POST_VARS['wordfilter'];
-if(isset($HTTP_POST_VARS['ipfilter']))
-    $ipfilter = $HTTP_POST_VARS['ipfilter'];
-if(isset($HTTP_POST_VARS['ignorefilter']))
-    $ignorefilter = $HTTP_POST_VARS['ignorefilter'];
-if(isset($HTTP_POST_VARS['newindex']))
-    $newindex = $HTTP_POST_VARS['newindex'];
-if(isset($HTTP_POST_VARS['pname']))
-    $pname = $HTTP_POST_VARS['pname'];
-if(isset($HTTP_POST_VARS['pmail']))
-    $newmail = $HTTP_POST_VARS['pmail'];
-if(isset($HTTP_POST_VARS['purl']))
-    $purl = $HTTP_POST_VARS['purl'];
-if(isset($HTTP_POST_VARS['picq']))
-    $picq = $HTTP_POST_VARS['picq'];
-if(isset($HTTP_POST_VARS['paim']))
-    $paim = $HTTP_POST_VARS['paim'];
-if(isset($HTTP_POST_VARS['pyim']))
-    $pyim = $HTTP_POST_VARS['pyim'];
-if(isset($HTTP_POST_VARS['pmsn']))
-    $pmsn = $HTTP_POST_VARS['pmsn'];
-if(isset($HTTP_POST_VARS['ploc']))
-    $ploc = $HTTP_POST_VARS['ploc'];
-if(isset($HTTP_POST_VARS['pdate']))
-    $pdate = $HTTP_POST_VARS['pdate'];
-if(isset($HTTP_POST_VARS['pip']))
-    $pip = $HTTP_POST_VARS['pip'];
-if(isset($HTTP_POST_VARS['ptext']))
-    $ptext = $HTTP_POST_VARS['ptext'];
-if(isset($HTTP_POST_VARS['term']))
-    $term = $HTTP_POST_VARS['term'];
-if(isset($HTTP_POST_VARS['filename']))
-    $filename = $HTTP_POST_VARS['filename'];
+if(isset($_GET['act']))
+    $act = $_GET['act'];
+if(isset($_POST['act']))
+    $act = $_POST['act'];
+if(isset($_POST['login']))
+    $login = $_POST['login'];
+if(isset($_POST['store']))
+    $store = $_POST['store'];
+if(isset($_COOKIE['GuestbookAdmin']))
+    $GuestbookAdmin = $_COOKIE['GuestbookAdmin'];
+if(isset($_GET['entry']))
+    $entry = $_GET['entry'];
+if(isset($_POST['entry']))
+    $entry = $_POST['entry'];
+if(isset($_GET['page']))
+    $page = $_GET['page'];
+if(isset($_POST['page']))
+    $page = $_POST['page'];
+if(isset($_POST['warning']))
+    $warning = $_POST['warning'];
+if(isset($_GET['lang']))
+    $lang = $_GET['lang'];
+if(isset($_POST['emotion']))
+    $emotion = $_POST['emotion'];
+if(isset($_POST['newname']))
+    $newname = $_POST['newname'];
+if(isset($_POST['newmail']))
+    $newmail = $_POST['newmail'];
+if(isset($_POST['newurl']))
+    $newurl = $_POST['newurl'];
+if(isset($_POST['newicq']))
+    $newicq = $_POST['newicq'];
+if(isset($_POST['newaim']))
+    $newaim = $_POST['newaim'];
+if(isset($_POST['newyim']))
+    $newyim = $_POST['newyim'];
+if(isset($_POST['newmsn']))
+    $newmsn = $_POST['newmsn'];
+if(isset($_POST['newloc']))
+    $newloc = $_POST['newloc'];
+if(isset($_POST['newdate']))
+    $newdate = $_POST['newdate'];
+if(isset($_POST['newip']))
+    $newip = $_POST['newip'];
+if(isset($_POST['newtext']))
+    $newtext = $_POST['newtext'];
+if(isset($_POST['do']))
+    $do = $_POST['do'];
+if(isset($_POST['datapos']))
+    $datapos = $_POST['datapos'];
+if(isset($_POST['signature']))
+    $signature = $_POST['signature'];
+if(isset($_POST['first']))
+    $first = $_POST['first'];
+if(isset($_POST['last']))
+    $last = $_POST['last'];
+if(isset($_POST['wordfilter']))
+    $wordfilter = $_POST['wordfilter'];
+if(isset($_POST['ipfilter']))
+    $ipfilter = $_POST['ipfilter'];
+if(isset($_POST['ignorefilter']))
+    $ignorefilter = $_POST['ignorefilter'];
+if(isset($_POST['newindex']))
+    $newindex = $_POST['newindex'];
+if(isset($_POST['pname']))
+    $pname = $_POST['pname'];
+if(isset($_POST['pmail']))
+    $newmail = $_POST['pmail'];
+if(isset($_POST['purl']))
+    $purl = $_POST['purl'];
+if(isset($_POST['picq']))
+    $picq = $_POST['picq'];
+if(isset($_POST['paim']))
+    $paim = $_POST['paim'];
+if(isset($_POST['pyim']))
+    $pyim = $_POST['pyim'];
+if(isset($_POST['pmsn']))
+    $pmsn = $_POST['pmsn'];
+if(isset($_POST['ploc']))
+    $ploc = $_POST['ploc'];
+if(isset($_POST['pdate']))
+    $pdate = $_POST['pdate'];
+if(isset($_POST['pip']))
+    $pip = $_POST['pip'];
+if(isset($_POST['ptext']))
+    $ptext = $_POST['ptext'];
+if(isset($_POST['term']))
+    $term = $_POST['term'];
+if(isset($_POST['filename']))
+    $filename = $_POST['filename'];
 # config variables
-if(isset($HTTP_POST_VARS['_language']))
-    $_language = $HTTP_POST_VARS['_language'];
-if(isset($HTTP_POST_VARS['_indexsize']))
-    $_indexsize = $HTTP_POST_VARS['_indexsize'];
-if(isset($HTTP_POST_VARS['_pageindex']))
-    $_pageindex = $HTTP_POST_VARS['_pageindex'];
-if(isset($HTTP_POST_VARS['_entriesperpage']))
-    $_entriesperpage = $HTTP_POST_VARS['_entriesperpage'];
-if(isset($HTTP_POST_VARS['_html_filter']))
-    $_html_filter = $HTTP_POST_VARS['_html_filter'];
-if(isset($HTTP_POST_VARS['_word_filter']))
-    $_word_filter = $HTTP_POST_VARS['_word_filter'];
-if(isset($HTTP_POST_VARS['_smileypics']))
-    $_smileypics = $HTTP_POST_VARS['_smileypics'];
-if(isset($HTTP_POST_VARS['_limitshownsmileylist']))
-    $_limitshownsmileylist = $HTTP_POST_VARS['_limitshownsmileylist'];
-if(isset($HTTP_POST_VARS['_maxsmileys']))
-    $_maxsmileys = $HTTP_POST_VARS['_maxsmileys'];
-if(isset($HTTP_POST_VARS['_maxchars']))
-    $_maxchars = $HTTP_POST_VARS['_maxchars'];
-if(isset($HTTP_POST_VARS['_maxtext']))
-    $_maxtext = $HTTP_POST_VARS['_maxtext'];
-if(isset($HTTP_POST_VARS['_mintext']))
-    $_mintext = $HTTP_POST_VARS['_mintext'];
-if(isset($HTTP_POST_VARS['_maxlines']))
-    $_maxlines = $HTTP_POST_VARS['_maxlines'];
-if(isset($HTTP_POST_VARS['_maxpictures']))
-    $_maxpictures = $HTTP_POST_VARS['_maxpictures'];
-if(isset($HTTP_POST_VARS['_floodwait']))
-    $_floodwait = $HTTP_POST_VARS['_floodwait'];
-if(isset($HTTP_POST_VARS['_logip']))
-    $_logip = $HTTP_POST_VARS['_logip'];
-if(isset($HTTP_POST_VARS['_messengers']))
-    $_messengers = $HTTP_POST_VARS['_messengers'];
-if(isset($HTTP_POST_VARS['_shortmessengerformat']))
-    $_shortmessengerformat = $HTTP_POST_VARS['_shortmessengerformat'];
-if(isset($HTTP_POST_VARS['_pictures']))
-    $_pictures = $HTTP_POST_VARS['_pictures'];
-if(isset($HTTP_POST_VARS['_checkpic']))
-    $_checkpic = $HTTP_POST_VARS['_checkpic'];
-if(isset($HTTP_POST_VARS['_shrinkimages']))
-    $_shrinkimages = $HTTP_POST_VARS['_shrinkimages'];
-if(isset($HTTP_POST_VARS['_maxXsize']))
-    $_maxXsize = $HTTP_POST_VARS['_maxXsize'];
-if(isset($HTTP_POST_VARS['_maxYsize']))
-    $_maxYsize = $HTTP_POST_VARS['_maxYsize'];
-if(isset($HTTP_POST_VARS['_showsmileys']))
-    $_showsmileys = $HTTP_POST_VARS['_showsmileys'];
-if(isset($HTTP_POST_VARS['_showoptions']))
-    $_showoptions = $HTTP_POST_VARS['_showoptions'];
-if(isset($HTTP_POST_VARS['_showhelp']))
-    $_showhelp = $HTTP_POST_VARS['_showhelp'];
-if(isset($HTTP_POST_VARS['_shorthelpformat']))
-    $_shorthelpformat = $HTTP_POST_VARS['_shorthelpformat'];
-if(isset($HTTP_POST_VARS['_showlocation']))
-    $_showlocation = $HTTP_POST_VARS['_showlocation'];
-if(isset($HTTP_POST_VARS['_previewchecked']))
-    $_previewchecked = $HTTP_POST_VARS['_previewchecked'];
-if(isset($HTTP_POST_VARS['_emotionchecked']))
-    $_emotionchecked = $HTTP_POST_VARS['_emotionchecked'];
-if(isset($HTTP_POST_VARS['_newdateonedit']))
-    $_newdateonedit = $HTTP_POST_VARS['_newdateonedit'];
-if(isset($HTTP_POST_VARS['_fixedtime']))
-    $_fixedtime = $HTTP_POST_VARS['_fixedtime'];
-if(isset($HTTP_POST_VARS['_dateformat']))
-    $_dateformat = $HTTP_POST_VARS['_dateformat'];
-if(isset($HTTP_POST_VARS['_adminpass']))
-    $_adminpass = $HTTP_POST_VARS['_adminpass'];
-if(isset($HTTP_POST_VARS['_moderatorpass']))
-    $_moderatorpass = $HTTP_POST_VARS['_moderatorpass'];
-if(isset($HTTP_POST_VARS['_adminmail']))
-    $_adminmail = $HTTP_POST_VARS['_adminmail'];
-if(isset($HTTP_POST_VARS['_moderatormail']))
-    $_moderatormail = $HTTP_POST_VARS['_moderatormail'];
-if(isset($HTTP_POST_VARS['_passfornewentries']))
-    $_passfornewentries = $HTTP_POST_VARS['_passfornewentries'];
-if(isset($HTTP_POST_VARS['_cookielifetime']))
-    $_cookielifetime = $HTTP_POST_VARS['_cookielifetime'];
-if(isset($HTTP_POST_VARS['_datapath']))
-    $_datapath = $HTTP_POST_VARS['_datapath'];
+if(isset($_POST['_language']))
+    $_language = $_POST['_language'];
+if(isset($_POST['_indexsize']))
+    $_indexsize = $_POST['_indexsize'];
+if(isset($_POST['_pageindex']))
+    $_pageindex = $_POST['_pageindex'];
+if(isset($_POST['_entriesperpage']))
+    $_entriesperpage = $_POST['_entriesperpage'];
+if(isset($_POST['_html_filter']))
+    $_html_filter = $_POST['_html_filter'];
+if(isset($_POST['_word_filter']))
+    $_word_filter = $_POST['_word_filter'];
+if(isset($_POST['_smileypics']))
+    $_smileypics = $_POST['_smileypics'];
+if(isset($_POST['_limitshownsmileylist']))
+    $_limitshownsmileylist = $_POST['_limitshownsmileylist'];
+if(isset($_POST['_maxsmileys']))
+    $_maxsmileys = $_POST['_maxsmileys'];
+if(isset($_POST['_maxchars']))
+    $_maxchars = $_POST['_maxchars'];
+if(isset($_POST['_maxtext']))
+    $_maxtext = $_POST['_maxtext'];
+if(isset($_POST['_mintext']))
+    $_mintext = $_POST['_mintext'];
+if(isset($_POST['_maxlines']))
+    $_maxlines = $_POST['_maxlines'];
+if(isset($_POST['_maxpictures']))
+    $_maxpictures = $_POST['_maxpictures'];
+if(isset($_POST['_floodwait']))
+    $_floodwait = $_POST['_floodwait'];
+if(isset($_POST['_logip']))
+    $_logip = $_POST['_logip'];
+if(isset($_POST['_messengers']))
+    $_messengers = $_POST['_messengers'];
+if(isset($_POST['_shortmessengerformat']))
+    $_shortmessengerformat = $_POST['_shortmessengerformat'];
+if(isset($_POST['_pictures']))
+    $_pictures = $_POST['_pictures'];
+if(isset($_POST['_checkpic']))
+    $_checkpic = $_POST['_checkpic'];
+if(isset($_POST['_shrinkimages']))
+    $_shrinkimages = $_POST['_shrinkimages'];
+if(isset($_POST['_maxXsize']))
+    $_maxXsize = $_POST['_maxXsize'];
+if(isset($_POST['_maxYsize']))
+    $_maxYsize = $_POST['_maxYsize'];
+if(isset($_POST['_showsmileys']))
+    $_showsmileys = $_POST['_showsmileys'];
+if(isset($_POST['_showoptions']))
+    $_showoptions = $_POST['_showoptions'];
+if(isset($_POST['_showhelp']))
+    $_showhelp = $_POST['_showhelp'];
+if(isset($_POST['_shorthelpformat']))
+    $_shorthelpformat = $_POST['_shorthelpformat'];
+if(isset($_POST['_showlocation']))
+    $_showlocation = $_POST['_showlocation'];
+if(isset($_POST['_previewchecked']))
+    $_previewchecked = $_POST['_previewchecked'];
+if(isset($_POST['_emotionchecked']))
+    $_emotionchecked = $_POST['_emotionchecked'];
+if(isset($_POST['_newdateonedit']))
+    $_newdateonedit = $_POST['_newdateonedit'];
+if(isset($_POST['_fixedtime']))
+    $_fixedtime = $_POST['_fixedtime'];
+if(isset($_POST['_dateformat']))
+    $_dateformat = $_POST['_dateformat'];
+if(isset($_POST['_adminpass']))
+    $_adminpass = $_POST['_adminpass'];
+if(isset($_POST['_moderatorpass']))
+    $_moderatorpass = $_POST['_moderatorpass'];
+if(isset($_POST['_adminmail']))
+    $_adminmail = $_POST['_adminmail'];
+if(isset($_POST['_moderatormail']))
+    $_moderatormail = $_POST['_moderatormail'];
+if(isset($_POST['_passfornewentries']))
+    $_passfornewentries = $_POST['_passfornewentries'];
+if(isset($_POST['_cookielifetime']))
+    $_cookielifetime = $_POST['_cookielifetime'];
+if(isset($_POST['_datapath']))
+    $_datapath = $_POST['_datapath'];
 
 if((!isset($GuestbookAdmin) || md5($GuestbookAdmin) != $adminpass) && isset($login))
 {

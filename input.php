@@ -29,8 +29,6 @@ class CInput extends CTools
 
 	function Flood_Check()
     {
-		global $HTTP_SERVER_VARS;
-
 		$i = 0;
 		while(file_exists("temp/ip.lck"))
         {
@@ -50,7 +48,7 @@ class CInput extends CTools
 			# create a new ip datafile
 			$logfile = fopen("temp/ip.log", "w") or die();
 
-			fputs($logfile, rtrim($HTTP_SERVER_VARS['REMOTE_ADDR']) . "\r\n");
+			fputs($logfile, rtrim($_SERVER['REMOTE_ADDR']) . "\r\n");
 			fputs($logfile, rtrim(time()));
 
 			fclose($logfile);
@@ -79,7 +77,7 @@ class CInput extends CTools
 			$position = 0;
 			while(list($ip, $time) = each($data))
             {
-	    	    if($HTTP_SERVER_VARS['REMOTE_ADDR'] == $ip && (time() - $this->floodwait) < $time)
+	    	    if($_SERVER['REMOTE_ADDR'] == $ip && (time() - $this->floodwait) < $time)
                 {
 	    		    $write = false;
 	    		    $dummy = array_slice($data, 0, $position);  # array_splice does not work!
@@ -99,7 +97,7 @@ class CInput extends CTools
 				fputs($logfile, rtrim($time) . "\r\n");
 			}
 			# write the actual used ip too
-			fputs($logfile, rtrim($HTTP_SERVER_VARS['REMOTE_ADDR']) . "\r\n");
+			fputs($logfile, rtrim($_SERVER['REMOTE_ADDR']) . "\r\n");
 			fputs($logfile, rtrim(time()));
 
 			fclose($logfile);
@@ -114,8 +112,6 @@ class CInput extends CTools
 
 	function IP_Check()
     {
-        global $HTTP_SERVER_VARS;
-
         # read ip filter data into an array
         if(file_exists($this->datapath . "/ipfilter.dat") && filesize($this->datapath . "/ipfilter.dat") == 0)
             return(true);
@@ -128,7 +124,7 @@ class CInput extends CTools
         {
             $ip = trim($ip);
             $ip = explode(".", $ip);
-            $remoteip = explode(".", $HTTP_SERVER_VARS['REMOTE_ADDR']);
+            $remoteip = explode(".", $_SERVER['REMOTE_ADDR']);
 
             for($i = 0; $i < count($ip); $i++)
             {
@@ -190,7 +186,7 @@ class CInput extends CTools
 
 	function Write_Data(&$newname, &$newmail, &$newicq, &$newaim, &$newyim, &$newmsn, &$newloc, &$newurl, &$newtext, &$random)
     {
-		global $HTTP_SERVER_VARS, $lang;
+		global $lang;
 
 		if($this->IP_Check() && $this->Flood_Check())
         {
@@ -310,7 +306,7 @@ class CInput extends CTools
 			fputs($output, rtrim("date=" . $newdate) . "\r\n");
 			if($this->logip != 0)
             {
-				fputs($output, rtrim("ip=" . $HTTP_SERVER_VARS['REMOTE_ADDR']) . "\r\n");
+				fputs($output, rtrim("ip=" . $_SERVER['REMOTE_ADDR']) . "\r\n");
 			}
             else
             {
@@ -328,15 +324,15 @@ class CInput extends CTools
 			unlink($this->datapath . "/index.lck");
 
 			$entrynum = (filesize($this->datapath . "/index.dat") / $this->indexsize);
-			$uri = substr($HTTP_SERVER_VARS['REQUEST_URI'], 0, strrpos($HTTP_SERVER_VARS['REQUEST_URI'], '/'));
+			$uri = substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/'));
 
 			if($this->adminmail != "")
             {
-				mail("$this->adminmail", "New entry in your guestbook!", "name = $newname\nmail = $newmail\nicq = $newicq\naim = $newaim\nyim = $newyim\nmsn = $newmsn\nlocation = $newloc\nurl = $newurl\ntext = $newtext\ndate = $newdate\nip = " . $HTTP_SERVER_VARS['REMOTE_ADDR'] . "\nedit entry: http://" . $HTTP_SERVER_VARS['SERVER_NAME'] . ":" . $HTTP_SERVER_VARS['SERVER_PORT'] . "$uri/admin/admin.php?act=changeentry&entry=$entrynum&page=1\ndelete entry: http://" . $HTTP_SERVER_VARS['SERVER_NAME'] . ":" . $HTTP_SERVER_VARS['SERVER_PORT'] . "$uri/admin/admin.php?act=deleteentry&entry=$entrynum&page=1\n\nYour guestbook!");
+				mail("$this->adminmail", "New entry in your guestbook!", "name = $newname\nmail = $newmail\nicq = $newicq\naim = $newaim\nyim = $newyim\nmsn = $newmsn\nlocation = $newloc\nurl = $newurl\ntext = $newtext\ndate = $newdate\nip = " . $_SERVER['REMOTE_ADDR'] . "\nedit entry: http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "$uri/admin/admin.php?act=changeentry&entry=$entrynum&page=1\ndelete entry: http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "$uri/admin/admin.php?act=deleteentry&entry=$entrynum&page=1\n\nYour guestbook!");
 			}
 			if($this->moderatormail != "")
             {
-				mail("$this->moderatormail", "New entry in your guestbook!", "name = $newname\nmail = $newmail\nicq = $newicq\naim = $newaim\nyim = $newyim\nmsn = $newmsn\nlocation = $newloc\nurl = $newurl\ntext = $newtext\ndate = $newdate\nip = " . $HTTP_SERVER_VARS['REMOTE_ADDR'] . "\nedit entry: http://" . $HTTP_SERVER_VARS['SERVER_NAME'] . ":" . $HTTP_SERVER_VARS['SERVER_PORT'] . "$uri/admin/admin.php?act=changeentry&entry=$entrynum&page=1\ndelete entry: http://"  .$HTTP_SERVER_VARS['SERVER_NAME'] . ":" . $HTTP_SERVER_VARS['SERVER_PORT'] . "$uri/admin/admin.php?act=deleteentry&entry=$entrynum&page=1\n\nYour guestbook!");
+				mail("$this->moderatormail", "New entry in your guestbook!", "name = $newname\nmail = $newmail\nicq = $newicq\naim = $newaim\nyim = $newyim\nmsn = $newmsn\nlocation = $newloc\nurl = $newurl\ntext = $newtext\ndate = $newdate\nip = " . $_SERVER['REMOTE_ADDR'] . "\nedit entry: http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "$uri/admin/admin.php?act=changeentry&entry=$entrynum&page=1\ndelete entry: http://"  .$_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "$uri/admin/admin.php?act=deleteentry&entry=$entrynum&page=1\n\nYour guestbook!");
 			}
 		}
         else
