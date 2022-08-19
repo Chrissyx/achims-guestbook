@@ -49,7 +49,7 @@ if($this->messengers != 0)
 
 	function CreateHelp()
     {
-		window.open("help.php", "help", "dependent=yes, resizable=yes, scrollbars=yes, width=500, height=400");
+		window.open("help.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>", "help", "dependent=yes, resizable=yes, scrollbars=yes, width=500, height=400");
 	}
 /* ]]> */
 	</SCRIPT>

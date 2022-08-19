@@ -21,12 +21,12 @@
  */
 class CSearch
 {
-	var $datapath;
-	var $messages;
-	var $datacount;
-	var $entriesperpage;
-	var $indexsize;
-	var $phrase;
+    public $datapath;
+    public $messages;
+    public $datacount;
+    public $entriesperpage;
+    public $indexsize;
+    public $phrase;
 
 	function __construct()
     {

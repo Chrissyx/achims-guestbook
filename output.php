@@ -21,20 +21,20 @@
  */
 class COutput
 {
-	var $datacount;
-	var $page;
-	var $entrypos;
-	var $phrase;
-	var $indexsize;
-	var $entriesperpage;
-	var $pageindex;
-	var $messengers;
-	var $shortmessengerformat;
-	var $messages;
-	var $adminpass;
-	var $logip;
-	var $datapath;
-	var $language;
+    public $datacount;
+    public $page;
+    public $entrypos;
+    public $phrase;
+    public $indexsize;
+    public $entriesperpage;
+    public $pageindex;
+    public $messengers;
+    public $shortmessengerformat;
+    public $messages;
+    public $adminpass;
+    public $logip;
+    public $datapath;
+    public $language;
 
 	function __construct($page, $entrypos, $phrase)
     {
