@@ -484,20 +484,22 @@ class CTools
 						if((is_integer($last = strpos($dummy, "[/PIC]", $first)) && $last >= 0) && ($last > $first))
                         {
 							$url = parse_url(trim(substr($formstring, $first, $last - $first)));
-							if(!isset($url["port"]))
-                                $url["port"] = 80;
-							if(!isset($url["scheme"]))
-                                $url["scheme"] = "http";
-							elseif($url["scheme"] != "http")
+							if(!isset($url['port']))
+                                $url['port'] = 443;
+							if(!isset($url['scheme']))
+                                $url['scheme'] = 'https';
+							elseif($url['scheme'] != 'http' && $url['scheme'] != 'https')
                             {
-								$url["host"] = $url["scheme"];
-								$url["scheme"] = "http";
-								$url["port"] = "";
+								$url['host'] = $url['scheme'];
+								$url['scheme'] = 'https';
+								$url['port'] = '';
 							}
-							if(!isset($url["host"]))
+                            if($url['scheme'] == 'http' && $url['port'] == 443)
+                                $url['port'] = 80;
+							if(!isset($url['host']))
                             {
-								$url["host"] = $url["path"];
-								$url["path"] = "";
+								$url['host'] = $url['path'];
+								$url['path'] = '';
 							}
 
 							$tobig = false;
@@ -585,6 +587,8 @@ class CTools
 							if(!$input || $tobig)
                             {
 								$formstring = substr_replace($formstring, "", $first - 5, $last - $first + 11);
+                                if($last > strlen($formstring))
+                                    break;
 							}
 						}
 						$dummy = strtoupper($formstring);
