@@ -380,11 +380,11 @@ class CTools
 
 		if($this->language == "ger")
         {
-			$dummy = array("ä"=>"&auml;", "Ä"=>"&Auml;", "ö"=>"&ouml;", "Ö"=>"&Ouml;", "ü"=>"&uuml;", "Ü"=>"&Uuml;", "ß"=>"&szlig;", "\""=>"&quot;");
+			$dummy = array("ä" => "&auml;", "Ä" => "&Auml;", "ö" => "&ouml;", "Ö" => "&Ouml;", "ü" => "&uuml;", "Ü" => "&Uuml;", "ß" => "&szlig;", "\"" => "&quot;");
 		}
         else
         {
-			$dummy = array("\""=>"&quot;");
+			$dummy = array("\"" => "&quot;");
 		}
 		$formstring = strtr($formstring, $dummy);
 
@@ -533,7 +533,7 @@ class CTools
 
 									# generate a random filename for more security
 									list($usec, $sec) = explode(' ', microtime());
-    							    srad((float) $sec + ((float) $usec * 100000));
+    							    srand((float) $sec + ((float) $usec * 100000));
 
 									$randomname = rand() . "." . strtolower(substr($filename, -3));
 
@@ -569,7 +569,7 @@ class CTools
 													$size[1] = $this->maxYsize;
 												}
 											}
-											$formstring = substr_replace($formstring, "<IMG SRC=\"" . $url["scheme"] . "://" . $url["host"] . ":" . $url["port"] . $url["path"] . "\" BORDER=\"0\" ALIGN=\"middle\" HSPACE=\"5\" HEIGHT=\"" . $size[1]."\" WIDTH=\"".$size[0]."\">", $first, $last - $first + 6);
+											$formstring = substr_replace($formstring, "<IMG SRC=\"" . $url["scheme"] . "://" . $url["host"] . ":" . $url["port"] . $url["path"] . "\" BORDER=\"0\" ALIGN=\"middle\" HSPACE=\"5\" HEIGHT=\"" . $size[1] . "\" WIDTH=\"" . $size[0] . "\">", $first, $last - $first + 6);
 										}
 										elseif($size[0] > $this->maxXsize)
                                         {

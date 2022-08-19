@@ -57,7 +57,7 @@ if($this->messengers != 0)
 
 <BODY onLoad="javascript:CheckLength(<?php echo $this->maxtext; ?>);">
 
-<FORM NAME="newentry" ACTION="guestbook.php<?php global $lang; if(isset($lang)) echo "?lang=".$lang; ?>" METHOD="post">
+<FORM NAME="newentry" ACTION="guestbook.php<?php global $lang; if(isset($lang)) echo "?lang=" . $lang; ?>" METHOD="post">
 <INPUT NAME="act" TYPE="hidden" VALUE="write">
 
 <TABLE BORDER="0" ALIGN="center" CELLPADDING="3" CELLSPACING="1" WIDTH="70%">
@@ -79,7 +79,7 @@ if($this->messengers != 0)
 </TR>
 <TR CLASS="tablerow2">
 	<TD CLASS="normalcol" VALIGN="center">
-	<FONT SIZE="2"<?php	if($which == 2)  echo " CLASS=\"attention\""; else  echo " CLASS=\"normalcol\""; ?>><?php echo $this->messages[10]; ?></FONT>
+	<FONT SIZE="2"<?php	if($which == 2)  echo " CLASS=\"attention\""; else echo " CLASS=\"normalcol\""; ?>><?php echo $this->messages[10]; ?></FONT>
 	</TD>
 	<TD CLASS="normalcol">
 	<FONT SIZE="2"><INPUT NAME="newmail" <?php if($which != 0) echo "VALUE=\"$this->newmail\" "; else echo "VALUE=\"$newmail\" "; ?>SIZE="<?php echo $this->inputsize; ?>"></FONT>

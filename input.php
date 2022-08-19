@@ -26,7 +26,6 @@ class CInput extends CTools
 		parent::__construct($emotion);
 	}
 
-
 	function Flood_Check()
     {
 		$i = 0;
@@ -103,18 +102,14 @@ class CInput extends CTools
 			fclose($logfile);
 		}
 		unlink("temp/ip.lck");
-
-		if($write)
-            return(true);
-		else
-            return(false);
+        return $write;
 	}
 
 	function IP_Check()
     {
         # read ip filter data into an array
         if(file_exists($this->datapath . "/ipfilter.dat") && filesize($this->datapath . "/ipfilter.dat") == 0)
-            return(true);
+            return true;
         if(file_exists($this->datapath . "/ipfilter.dat"))
             $ipfilter = file($this->datapath . "/ipfilter.dat") or die("Can't open ipfilter.dat for reading!");
 
@@ -153,17 +148,14 @@ class CInput extends CTools
             }
 
         // should the ip filtered out?
-        if(!$different)
-            return(false);
-        else
-            return(true);
+        return $different;
     }
 
 	function Ignore_Check(&$newname, &$newmail, &$newicq, &$newaim, &$newyim, &$newmsn, &$newloc, &$newurl, &$newtext)
     {
 		# read ignore filter data into an array
 		if(file_exists($this->datapath . "/ignorefilter.dat") && filesize($this->datapath . "/ignorefilter.dat") == 0)
-            return(true);
+            return true;
 		if(file_exists($this->datapath . "/ignorefilter.dat"))
             $ignorefilter = file($this->datapath . "/ignorefilter.dat") or die("Can't open ignorefilter.dat for reading!");
 
@@ -179,10 +171,7 @@ class CInput extends CTools
 		}
 
 		// should the entry filtered out?
-		if(!$different)
-            return(false);
-		else
-            return(true);
+        return $different;
 	}
 
 	function Write_Data(&$newname, &$newmail, &$newicq, &$newaim, &$newyim, &$newmsn, &$newloc, &$newurl, &$newtext, &$random)

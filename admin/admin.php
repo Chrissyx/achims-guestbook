@@ -256,9 +256,9 @@ function Unlock()
 
 register_shutdown_function("Unlock");
 
-if(!file_exists("../".$datapath."/lock.lck"))
+if(!file_exists("../" . $datapath . "/lock.lck"))
 {
-    $lock = fopen("../".$datapath."/lock.lck", "w") or die("Can't create lock.lck!");
+    $lock = fopen("../" . $datapath . "/lock.lck", "w") or die("Can't create lock.lck!");
     fclose($lock);
 }
 
@@ -667,7 +667,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
                 if(isset($lang))
                     header("Location: ../guestbook.php?act=show&page=$page&lang=$lang");
                 else
-                    header("Location: ../guestbook.php?act=show&amp;page=$page");
+                    header("Location: ../guestbook.php?act=show&page=$page");
             }
             else
             {
@@ -727,7 +727,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             $filter = "";
             while(!feof($input))
             {
-                $filter .= trim(fgets($input, 1024))." ";
+                $filter .= trim(fgets($input, 1024)) . " ";
             }
 
             fclose($input);
@@ -743,7 +743,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             for($i = 0; $i < count($filter); $i++)
             {
                 if($filter[$i] != "")
-                    fputs($output, rtrim($filter[$i])."\r\n");
+                    fputs($output, rtrim($filter[$i]) . "\r\n");
             }
 
             fclose($output);
@@ -760,7 +760,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             $filter = "";
             while(!feof($input))
             {
-                $filter .= trim(fgets($input, 1024))." ";
+                $filter .= trim(fgets($input, 1024)) . " ";
             }
 
             fclose($input);
@@ -776,7 +776,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             for($i = 0; $i < count($filter); $i++)
             {
                 if($filter[$i] != "")
-                    fputs($output, rtrim($filter[$i])."\r\n");
+                    fputs($output, rtrim($filter[$i]) . "\r\n");
             }
 
             fclose($output);
@@ -791,8 +791,9 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             $input = fopen("../" . $datapath . "/ignorefilter.dat", "r") or die("Can't open ignorefilter.dat for reading!");
 
             $filter = "";
-            while (!feof($input)) {
-                $filter .= trim(fgets($input, 1024))."\r\n";
+            while(!feof($input))
+            {
+                $filter .= trim(fgets($input, 1024)) . "\r\n";
             }
             trim($filter);
 
@@ -809,7 +810,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             for($i = 0; $i < count($filter); $i++)
             {
                 if($filter[$i] != "")
-                    fputs($output, trim($filter[$i])."\r\n");
+                    fputs($output, trim($filter[$i]) . "\r\n");
             }
 
             fclose($output);
@@ -903,60 +904,60 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
                 $_datapath = "data";
 
             fputs($output, rtrim("<?php")."\r\n");
-            fputs($output, rtrim("\t\$language = \"$_language\";") . "\r\n");
-            fputs($output, rtrim("\t\$indexsize = $_indexsize;") . "\r\n");
-            fputs($output, rtrim("\t\$entriesperpage = $_entriesperpage;") . "\r\n");
-            fputs($output, rtrim("\t\$pageindex = $_pageindex;") . "\r\n");
-            fputs($output, rtrim("\t\$html_filter = $_html_filter;") . "\r\n");
-            fputs($output, rtrim("\t\$word_filter = $_word_filter;") . "\r\n");
-            fputs($output, rtrim("\t\$smileypics = $_smileypics;") . "\r\n");
-            fputs($output, rtrim("\t\$limitshownsmileylist = $_limitshownsmileylist;") . "\r\n");
-            fputs($output, rtrim("\t\$maxsmileys = $_maxsmileys;") . "\r\n");
-            fputs($output, rtrim("\t\$maxchars = $_maxchars;") . "\r\n");
-            fputs($output, rtrim("\t\$maxtext = $_maxtext;") . "\r\n");
-            fputs($output, rtrim("\t\$mintext = $_mintext;") . "\r\n");
-            fputs($output, rtrim("\t\$maxlines = $_maxlines;") . "\r\n");
-            fputs($output, rtrim("\t\$maxpictures = $_maxpictures;") . "\r\n");
-            fputs($output, rtrim("\t\$floodwait = $_floodwait;") . "\r\n");
-            fputs($output, rtrim("\t\$logip = $_logip;") . "\r\n");
-            fputs($output, rtrim("\t\$messengers = $_messengers;") . "\r\n");
-            fputs($output, rtrim("\t\$shortmessengerformat = $_shortmessengerformat;") . "\r\n");
-            fputs($output, rtrim("\t\$pictures = $_pictures;") . "\r\n");
-            fputs($output, rtrim("\t\$checkpic = $_checkpic;") . "\r\n");
-            fputs($output, rtrim("\t\$shrinkimages = $_shrinkimages;") . "\r\n");
-            fputs($output, rtrim("\t\$maxXsize = $_maxXsize;") . "\r\n");
-            fputs($output, rtrim("\t\$maxYsize = $_maxYsize;") . "\r\n");
-            fputs($output, rtrim("\t\$showsmileys = $_showsmileys;") . "\r\n");
-            fputs($output, rtrim("\t\$showoptions = $_showoptions;") . "\r\n");
-            fputs($output, rtrim("\t\$showhelp = $_showhelp;") . "\r\n");
-            fputs($output, rtrim("\t\$shorthelpformat = $_shorthelpformat;") . "\r\n");
-            fputs($output, rtrim("\t\$showlocation = $_showlocation;") . "\r\n");
-            fputs($output, rtrim("\t\$previewchecked = $_previewchecked;") . "\r\n");
-            fputs($output, rtrim("\t\$emotionchecked = $_emotionchecked;") . "\r\n");
-            fputs($output, rtrim("\t\$newdateonedit = $_newdateonedit;") . "\r\n");
-            fputs($output, rtrim("\t\$fixedtime = $_fixedtime;") . "\r\n");
-            fputs($output, rtrim("\t\$dateformat = $_dateformat;") . "\r\n");
-            fputs($output, rtrim("\t\$adminpass = \"" . md5($_adminpass) . "\";") . "\r\n");
+            fputs($output, rtrim("\$language = \"$_language\";") . "\r\n");
+            fputs($output, rtrim("\$indexsize = $_indexsize;") . "\r\n");
+            fputs($output, rtrim("\$entriesperpage = $_entriesperpage;") . "\r\n");
+            fputs($output, rtrim("\$pageindex = $_pageindex;") . "\r\n");
+            fputs($output, rtrim("\$html_filter = $_html_filter;") . "\r\n");
+            fputs($output, rtrim("\$word_filter = $_word_filter;") . "\r\n");
+            fputs($output, rtrim("\$smileypics = $_smileypics;") . "\r\n");
+            fputs($output, rtrim("\$limitshownsmileylist = $_limitshownsmileylist;") . "\r\n");
+            fputs($output, rtrim("\$maxsmileys = $_maxsmileys;") . "\r\n");
+            fputs($output, rtrim("\$maxchars = $_maxchars;") . "\r\n");
+            fputs($output, rtrim("\$maxtext = $_maxtext;") . "\r\n");
+            fputs($output, rtrim("\$mintext = $_mintext;") . "\r\n");
+            fputs($output, rtrim("\$maxlines = $_maxlines;") . "\r\n");
+            fputs($output, rtrim("\$maxpictures = $_maxpictures;") . "\r\n");
+            fputs($output, rtrim("\$floodwait = $_floodwait;") . "\r\n");
+            fputs($output, rtrim("\$logip = $_logip;") . "\r\n");
+            fputs($output, rtrim("\$messengers = $_messengers;") . "\r\n");
+            fputs($output, rtrim("\$shortmessengerformat = $_shortmessengerformat;") . "\r\n");
+            fputs($output, rtrim("\$pictures = $_pictures;") . "\r\n");
+            fputs($output, rtrim("\$checkpic = $_checkpic;") . "\r\n");
+            fputs($output, rtrim("\$shrinkimages = $_shrinkimages;") . "\r\n");
+            fputs($output, rtrim("\$maxXsize = $_maxXsize;") . "\r\n");
+            fputs($output, rtrim("\$maxYsize = $_maxYsize;") . "\r\n");
+            fputs($output, rtrim("\$showsmileys = $_showsmileys;") . "\r\n");
+            fputs($output, rtrim("\$showoptions = $_showoptions;") . "\r\n");
+            fputs($output, rtrim("\$showhelp = $_showhelp;") . "\r\n");
+            fputs($output, rtrim("\$shorthelpformat = $_shorthelpformat;") . "\r\n");
+            fputs($output, rtrim("\$showlocation = $_showlocation;") . "\r\n");
+            fputs($output, rtrim("\$previewchecked = $_previewchecked;") . "\r\n");
+            fputs($output, rtrim("\$emotionchecked = $_emotionchecked;") . "\r\n");
+            fputs($output, rtrim("\$newdateonedit = $_newdateonedit;") . "\r\n");
+            fputs($output, rtrim("\$fixedtime = $_fixedtime;") . "\r\n");
+            fputs($output, rtrim("\$dateformat = $_dateformat;") . "\r\n");
+            fputs($output, rtrim("\$adminpass = \"" . md5($_adminpass) . "\";") . "\r\n");
             if($_moderatorpass != "")
             {
                 if($_moderatorpass != $moderatorpass)
                 {
-                    fputs($output, rtrim("\t\$moderatorpass = \"" . md5($_moderatorpass) . "\";") . "\r\n");
+                    fputs($output, rtrim("\$moderatorpass = \"" . md5($_moderatorpass) . "\";") . "\r\n");
                 }
                 else
                 {
-                    fputs($output, rtrim("\t\$moderatorpass = \"" . $moderatorpass . "\";") . "\r\n");
+                    fputs($output, rtrim("\$moderatorpass = \"" . $moderatorpass . "\";") . "\r\n");
                 }
             }
             else
             {
-                fputs($output, rtrim("\t\$moderatorpass = \"\";") . "\r\n");
+                fputs($output, rtrim("\$moderatorpass = \"\";") . "\r\n");
             }
-            fputs($output, rtrim("\t\$adminmail = \"$_adminmail\";") . "\r\n");
-            fputs($output, rtrim("\t\$moderatormail = \"$_moderatormail\";") . "\r\n");
-            fputs($output, rtrim("\t\$passfornewentries = $_passfornewentries;") . "\r\n");
-            fputs($output, rtrim("\t\$cookielifetime = $_cookielifetime;") . "\r\n");
-            fputs($output, rtrim("\t\$datapath = \"$_datapath\";") . "\r\n");
+            fputs($output, rtrim("\$adminmail = \"$_adminmail\";") . "\r\n");
+            fputs($output, rtrim("\$moderatormail = \"$_moderatormail\";") . "\r\n");
+            fputs($output, rtrim("\$passfornewentries = $_passfornewentries;") . "\r\n");
+            fputs($output, rtrim("\$cookielifetime = $_cookielifetime;") . "\r\n");
+            fputs($output, rtrim("\$datapath = \"$_datapath\";") . "\r\n");
             fputs($output, rtrim("?>"));
 
             fclose($output);
@@ -1144,46 +1145,46 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
                 $output = fopen("../config.php", "w") or die("Can't open config.php for writing!");
 
                 fputs($output, rtrim("<?php") . "\r\n");
-                fputs($output, rtrim("\t\$language = \"$language\";") . "\r\n");
-                fputs($output, rtrim("\t\$indexsize = $newindex;") . "\r\n");
-                fputs($output, rtrim("\t\$entriesperpage = $entriesperpage;") . "\r\n");
-                fputs($output, rtrim("\t\$pageindex = $pageindex;") . "\r\n");
-                fputs($output, rtrim("\t\$html_filter = $html_filter;") . "\r\n");
-                fputs($output, rtrim("\t\$word_filter = $word_filter;") . "\r\n");
-                fputs($output, rtrim("\t\$smileypics = $smileypics;") . "\r\n");
-                fputs($output, rtrim("\t\$limitshownsmileylist = $limitshownsmileylist;") . "\r\n");
-                fputs($output, rtrim("\t\$maxsmileys = $maxsmileys;") . "\r\n");
-                fputs($output, rtrim("\t\$maxchars = $maxchars;") . "\r\n");
-                fputs($output, rtrim("\t\$maxtext = $maxtext;") . "\r\n");
-                fputs($output, rtrim("\t\$mintext = $mintext;") . "\r\n");
-                fputs($output, rtrim("\t\$maxlines = $maxlines;") . "\r\n");
-                fputs($output, rtrim("\t\$maxpictures = $maxpictures;") . "\r\n");
-                fputs($output, rtrim("\t\$floodwait = $floodwait;") . "\r\n");
-                fputs($output, rtrim("\t\$logip = $logip;") . "\r\n");
-                fputs($output, rtrim("\t\$messengers = $messengers;") . "\r\n");
-                fputs($output, rtrim("\t\$shortmessengerformat = $shortmessengerformat;") . "\r\n");
-                fputs($output, rtrim("\t\$pictures = $pictures;") . "\r\n");
-                fputs($output, rtrim("\t\$checkpic = $checkpic;") . "\r\n");
-                fputs($output, rtrim("\t\$shrinkimages = $shrinkimages;") . "\r\n");
-                fputs($output, rtrim("\t\$maxXsize = $maxXsize;") . "\r\n");
-                fputs($output, rtrim("\t\$maxYsize = $maxYsize;") . "\r\n");
-                fputs($output, rtrim("\t\$showsmileys = $showsmileys;") . "\r\n");
-                fputs($output, rtrim("\t\$showoptions = $showoptions;") . "\r\n");
-                fputs($output, rtrim("\t\$showhelp = $showhelp;") . "\r\n");
-                fputs($output, rtrim("\t\$shorthelpformat = $shorthelpformat;") . "\r\n");
-                fputs($output, rtrim("\t\$showlocation = $showlocation;") . "\r\n");
-                fputs($output, rtrim("\t\$previewchecked = $previewchecked;") . "\r\n");
-                fputs($output, rtrim("\t\$emotionchecked = $emotionchecked;") . "\r\n");
-                fputs($output, rtrim("\t\$newdateonedit = $newdateonedit;") . "\r\n");
-                fputs($output, rtrim("\t\$fixedtime = $fixedtime;") . "\r\n");
-                fputs($output, rtrim("\t\$dateformat = $dateformat;") . "\r\n");
-                fputs($output, rtrim("\t\$adminpass = \"$adminpass\";") . "\r\n");
-                fputs($output, rtrim("\t\$moderatorpass = \"$moderatorpass\";") . "\r\n");
-                fputs($output, rtrim("\t\$adminmail = \"$adminmail\";") . "\r\n");
-                fputs($output, rtrim("\t\$moderatormail = \"$moderatormail\";") . "\r\n");
-                fputs($output, rtrim("\t\$passfornewentries = \"$passfornewentries\";") . "\r\n");
-                fputs($output, rtrim("\t\$cookielifetime = $cookielifetime;") . "\r\n");
-                fputs($output, rtrim("\t\$datapath = \"$datapath\";") . "\r\n");
+                fputs($output, rtrim("\$language = \"$language\";") . "\r\n");
+                fputs($output, rtrim("\$indexsize = $newindex;") . "\r\n");
+                fputs($output, rtrim("\$entriesperpage = $entriesperpage;") . "\r\n");
+                fputs($output, rtrim("\$pageindex = $pageindex;") . "\r\n");
+                fputs($output, rtrim("\$html_filter = $html_filter;") . "\r\n");
+                fputs($output, rtrim("\$word_filter = $word_filter;") . "\r\n");
+                fputs($output, rtrim("\$smileypics = $smileypics;") . "\r\n");
+                fputs($output, rtrim("\$limitshownsmileylist = $limitshownsmileylist;") . "\r\n");
+                fputs($output, rtrim("\$maxsmileys = $maxsmileys;") . "\r\n");
+                fputs($output, rtrim("\$maxchars = $maxchars;") . "\r\n");
+                fputs($output, rtrim("\$maxtext = $maxtext;") . "\r\n");
+                fputs($output, rtrim("\$mintext = $mintext;") . "\r\n");
+                fputs($output, rtrim("\$maxlines = $maxlines;") . "\r\n");
+                fputs($output, rtrim("\$maxpictures = $maxpictures;") . "\r\n");
+                fputs($output, rtrim("\$floodwait = $floodwait;") . "\r\n");
+                fputs($output, rtrim("\$logip = $logip;") . "\r\n");
+                fputs($output, rtrim("\$messengers = $messengers;") . "\r\n");
+                fputs($output, rtrim("\$shortmessengerformat = $shortmessengerformat;") . "\r\n");
+                fputs($output, rtrim("\$pictures = $pictures;") . "\r\n");
+                fputs($output, rtrim("\$checkpic = $checkpic;") . "\r\n");
+                fputs($output, rtrim("\$shrinkimages = $shrinkimages;") . "\r\n");
+                fputs($output, rtrim("\$maxXsize = $maxXsize;") . "\r\n");
+                fputs($output, rtrim("\$maxYsize = $maxYsize;") . "\r\n");
+                fputs($output, rtrim("\$showsmileys = $showsmileys;") . "\r\n");
+                fputs($output, rtrim("\$showoptions = $showoptions;") . "\r\n");
+                fputs($output, rtrim("\$showhelp = $showhelp;") . "\r\n");
+                fputs($output, rtrim("\$shorthelpformat = $shorthelpformat;") . "\r\n");
+                fputs($output, rtrim("\$showlocation = $showlocation;") . "\r\n");
+                fputs($output, rtrim("\$previewchecked = $previewchecked;") . "\r\n");
+                fputs($output, rtrim("\$emotionchecked = $emotionchecked;") . "\r\n");
+                fputs($output, rtrim("\$newdateonedit = $newdateonedit;") . "\r\n");
+                fputs($output, rtrim("\$fixedtime = $fixedtime;") . "\r\n");
+                fputs($output, rtrim("\$dateformat = $dateformat;") . "\r\n");
+                fputs($output, rtrim("\$adminpass = \"$adminpass\";") . "\r\n");
+                fputs($output, rtrim("\$moderatorpass = \"$moderatorpass\";") . "\r\n");
+                fputs($output, rtrim("\$adminmail = \"$adminmail\";") . "\r\n");
+                fputs($output, rtrim("\$moderatormail = \"$moderatormail\";") . "\r\n");
+                fputs($output, rtrim("\$passfornewentries = \"$passfornewentries\";") . "\r\n");
+                fputs($output, rtrim("\$cookielifetime = $cookielifetime;") . "\r\n");
+                fputs($output, rtrim("\$datapath = \"$datapath\";") . "\r\n");
                 fputs($output, rtrim("?>"));
 
                 fclose($output);
@@ -1212,7 +1213,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             if(file_exists("../" . $datapath . "/index.dat"))
                 unlink("../" . $datapath . "/index.dat");
 
-            $output = fopen("../" . $datapath."/index.dat", "w") or die("Can't open index.dat for writing!");
+            $output = fopen("../" . $datapath . "/index.dat", "w") or die("Can't open index.dat for writing!");
 
             while(!feof($input))
             {

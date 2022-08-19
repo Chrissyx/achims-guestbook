@@ -17,20 +17,16 @@ while(false !== ($file = readdir($handle)))
     {
         if(preg_match("/([0-9_a-z])*(?i).(gif|jpg|png)(?i)/", $file, $number))
         {
-            echo "-> working on: gif/" . $file . "...<BR>";
+            echo "-&gt; working on: gif/" . $file . "...<BR>";
             $size = GetImageSize("gif/$file");
-
-            if($count == 1)
-                fputs($output, "\"" . $count . "\" => \"<IMG SRC=\\\"gif/" . $file . "\\\" BORDER=\\\"0\\\" WIDTH=\\\"" . $size[0] . "\\\" HEIGHT=\\\"" . $size[1] . "\\\" ALT=\\\"\\\">\",\n");
-            else
-                fputs($output, "                    \"" . $count . "\" => \"<IMG SRC=\\\"gif/" . $file . "\\\" BORDER=\\\"0\\\" WIDTH=\\\"" . $size[0] . "\\\" HEIGHT=\\\"" . $size[1] . "\\\" ALT=\\\"\\\">\",\n");
+            fputs($output, "\"" . $count . "\" => \"<IMG SRC=\\\"gif/" . $file . "\\\" BORDER=\\\"0\\\" WIDTH=\\\"" . $size[0] . "\\\" HEIGHT=\\\"" . $size[1] . "\\\" ALT=\\\"\\\">\",\n");
             $count++;
         }
     }
 }
 closedir($handle);
 
-echo "-> done!";
+echo "-&gt; done!";
 
 fputs($output, ");\n");
 fputs($output, "?>");

@@ -245,7 +245,7 @@ elseif($act == "search")
         $next = "yes";
     if($next == "no")
         $page = 1;
-    if(!isset($phrase) || $phrase == "")
+    if(!isset($phrase))
         $phrase = "";
 
     SearchEntry($next);
