@@ -47,7 +47,7 @@ if(($newicq != "" || $newaim != "" || $newyim != "" || $newmsn != "") && ($newma
 if($this->shortmessengerformat == 1)
 {
     if($newicq != "")
-        echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newicq\"></IMG></A>&nbsp;";
+        echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"https://icq.com/people/$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newicq\"></IMG></A>&nbsp;";
     if($newaim != "")
         echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$newaim\"></IMG></A>&nbsp;";
     if($newyim != "")
@@ -58,7 +58,7 @@ if($this->shortmessengerformat == 1)
 else
 {
     if($newicq != "")
-        echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$newicq</IMG></A></FONT><BR>";
+        echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"https://icq.com/people/$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$newicq</IMG></A></FONT><BR>";
     if($newaim != "")
         echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"AIM\">&nbsp;$newaim</IMG></A></FONT><BR>";
     if($newyim != "")

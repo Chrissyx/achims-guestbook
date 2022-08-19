@@ -32,7 +32,7 @@ if($newmail != "")
 if($newurl != "")
     echo "&nbsp;&nbsp;<A HREF=\"$newurl\" TARGET=\"_blank\"><IMG BORDER=\"0\" SRC=\"gif/home.gif\" HEIGHT=\"16\" WIDTH=\"32\"></IMG></A><BR>";
 if($newicq != "")
-    echo "<A HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";
+    echo "<A HREF=\"https://icq.com/people/$newicq\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";
 if($newaim != "")
     echo "&nbsp;&nbsp;<A HREF=\"aim:goim?screenname=$newaim\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\"></IMG></A>";
 if($newyim != "")

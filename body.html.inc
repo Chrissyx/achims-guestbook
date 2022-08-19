@@ -86,24 +86,24 @@ if($this->messengers != 0)
     if($this->shortmessengerformat == 1)
     {
         if($icq[$i] != "")
-            echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$icq[$i]\"></IMG></A>&nbsp;";
+            echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"https://icq.com/people/$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$icq[$i]\"></IMG></A>&nbsp;";
         if($aim[$i] != "")
             echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$aim[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$aim[$i]\"></IMG></A>&nbsp;";
         if($yim[$i] != "")
             echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$yim[$i]&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$yim[$i]\"></IMG></A>&nbsp;";
         if($msn[$i] != "")
-            echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"mailto=$msn[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$msn[$i]\"></IMG></A><BR>";
+            echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"mailto:$msn[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$msn[$i]\"></IMG></A><BR>";
     }
     else
     {
         if($icq[$i] != "")
-            echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$icq[$i]</IMG></A></FONT><BR>";
+            echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"https://icq.com/people/$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$icq[$i]</IMG></A></FONT><BR>";
         if($aim[$i] != "")
             echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$aim[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"AIM\">&nbsp;$aim[$i]</IMG></A></FONT><BR>";
         if($yim[$i] != "")
             echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://edit.yahoo.com/config/send_webmesg?.target=$yim[$i]&.src=pg\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/yim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"YIM\">&nbsp;$yim[$i]</IMG></A></FONT><BR>";
         if($msn[$i] != "")
-            echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"mailto=$msn[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"MSN\">&nbsp;$msn[$i]</IMG></A></FONT><BR>";
+            echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"mailto:$msn[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/msn.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"MSN\">&nbsp;$msn[$i]</IMG></A></FONT><BR>";
     }
 }
 ?>

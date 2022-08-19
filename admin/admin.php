@@ -108,7 +108,7 @@ if(isset($_POST['newindex']))
 if(isset($_POST['pname']))
     $pname = $_POST['pname'];
 if(isset($_POST['pmail']))
-    $newmail = $_POST['pmail'];
+    $pmail = $_POST['pmail'];
 if(isset($_POST['purl']))
     $purl = $_POST['purl'];
 if(isset($_POST['picq']))
@@ -213,7 +213,7 @@ if(isset($_POST['_cookielifetime']))
 if(isset($_POST['_datapath']))
     $_datapath = $_POST['_datapath'];
 
-if((!isset($GuestbookAdmin) || md5($GuestbookAdmin) != $adminpass) && isset($login))
+if(isset($login) && (!isset($GuestbookAdmin) || md5($GuestbookAdmin) != $adminpass))
 {
     if(md5($login) == $adminpass && isset($store))
     {
@@ -233,7 +233,7 @@ else
     if(isset($GuestbookAdmin) && md5($GuestbookAdmin) == $adminpass)
         $login = $GuestbookAdmin;
 }
-if(md5($login) != $adminpass && (!isset($GuestbookModerator) || md5($GuestbookModerator) != $moderatorpass) && isset($login))
+if(isset($login) && md5($login) != $adminpass && (!isset($GuestbookModerator) || md5($GuestbookModerator) != $moderatorpass))
 {
     if(md5($login) == $moderatorpass && isset($store))
     {
@@ -243,7 +243,7 @@ if(md5($login) != $adminpass && (!isset($GuestbookModerator) || md5($GuestbookMo
 }
 else
 {
-    if(md5($login) != $adminpass && isset($GuestbookModerator) && md5($GuestbookModerator) == $moderatorpass)
+    if(isset($GuestbookModerator) && md5($login) != $adminpass && md5($GuestbookModerator) == $moderatorpass)
         $login = $GuestbookModerator;
 }
 
@@ -626,7 +626,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             if(isset($lang))
                 header("Location: ../guestbook.php?act=show&page=$page&lang=$lang");
             else
-                header("Location: ../guestbook.php?act=show&amp;page=$page");
+                header("Location: ../guestbook.php?act=show&page=$page");
         }
         else
         {

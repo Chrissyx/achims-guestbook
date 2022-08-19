@@ -87,7 +87,7 @@ if($this->messengers != 0)
     if($this->shortmessengerformat == 1)
     {
         if($icq[$i] != "")
-            echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$icq[$i]\"></IMG></A>&nbsp;";
+            echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"https://icq.com/people/$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$icq[$i]\"></IMG></A>&nbsp;";
         if($aim[$i] != "")
             echo "<A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$aim[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"$aim[$i]\"></IMG></A>&nbsp;";
         if($yim[$i] != "")
@@ -98,7 +98,7 @@ if($this->messengers != 0)
     else
     {
         if($icq[$i] != "")
-            echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"http://wwp.icq.com/scripts/contact.dll?msgto=$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$icq[$i]</IMG></A></FONT><BR>";
+            echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"https://icq.com/people/$icq[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/icq.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"ICQ\">&nbsp;$icq[$i]</IMG></A></FONT><BR>";
         if($aim[$i] != "")
             echo "<FONT SIZE=\"1\" CLASS=\"normalcol\"><A CLASS=\"tablelink\" STYLE=\"text-decoration: none\" HREF=\"aim:goim?screenname=$aim[$i]\" TARGET=\"_blank\" ONFOCUS=\"filter:blur()\"><IMG BORDER=\"0\" SRC=\"gif/aim.gif\" ALIGN=\"bottom\" HEIGHT=\"16\" WIDTH=\"16\" ALT=\"AIM\">&nbsp;$aim[$i]</IMG></A></FONT><BR>";
         if($yim[$i] != "")

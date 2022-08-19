@@ -217,6 +217,8 @@ elseif($act == "new")
 }
 elseif($act == "write")
 {
+    if(!isset($emotion))
+        $emotion = null;
     if($pre == "yes" && isset($presave))
     {
         #save the preview data
