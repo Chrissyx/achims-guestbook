@@ -406,10 +406,10 @@ function Format_String(&$formstring, $emotion, $what)
 
     if($what == "url")
     {
-        if(strtolower(substr($formstring, 0, 7)) != "http://")
-            $formstring = "http://" . "$formstring";
-        if(strtolower($formstring) == "http://")
-            $formstring = "";
+        if(strtolower(substr($formstring, 0, 7)) != 'http://' && strtolower(substr($formstring, 0, 8)) != 'https://')
+            $formstring = 'https://' . "$formstring";
+        if(strtolower($formstring) == 'http://' || strtolower($formstring) == 'https://')
+            $formstring = '';
     }
 }
 
