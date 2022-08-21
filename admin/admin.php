@@ -51,6 +51,8 @@ if(isset($_POST['store']))
     $store = $_POST['store'];
 if(isset($_COOKIE['GuestbookAdmin']))
     $GuestbookAdmin = $_COOKIE['GuestbookAdmin'];
+if(isset($_COOKIE['GuestbookModerator']))
+    $GuestbookModerator = $_COOKIE['GuestbookModerator'];
 if(isset($_GET['entry']))
     $entry = $_GET['entry'];
 if(isset($_POST['entry']))
@@ -243,7 +245,7 @@ if(isset($login) && md5($login) != $adminpass && (!isset($GuestbookModerator) ||
 }
 else
 {
-    if(isset($GuestbookModerator) && md5($login) != $adminpass && md5($GuestbookModerator) == $moderatorpass)
+    if(isset($GuestbookModerator) && md5($GuestbookModerator) == $moderatorpass)
         $login = $GuestbookModerator;
 }
 
