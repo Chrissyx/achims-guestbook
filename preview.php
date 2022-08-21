@@ -87,7 +87,7 @@ class CPreview extends CTools
 		$this->newloc = str_replace("&", "&amp;amp;", str_replace("\"", "&#34;", stripslashes($newloc)));
 		$this->newurl = str_replace("&", "&amp;amp;", str_replace("\"", "&#34;", stripslashes($newurl)));
 		$this->newtext = str_replace("&", "&amp;amp;", str_replace("\"", "&#34;", stripslashes($newtext)));
-		$this->newtext = str_ireplace("\[BR\]", "\r\n", $this->newtext);
+		$this->newtext = str_ireplace("[BR]", "\r\n", $this->newtext);
 		$this->Check_Empty();
 
 		$this->Format_String($newname, "name");

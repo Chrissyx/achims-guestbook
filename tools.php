@@ -605,8 +605,8 @@ class CTools
 			}
 
 			#parse pseudo html commands and replace it with real html commands
-			$formstring = str_ireplace("\[BR\]", "<BR>", $formstring);
-			$formstring = str_ireplace("\[P\]", "<P>", $formstring);
+			$formstring = str_ireplace("[BR]", "<BR>", $formstring);
+			$formstring = str_ireplace("[P]", "<P>", $formstring);
 			$this->Parse_HTML($formstring, "B");
 			$this->Parse_HTML($formstring, "I");
 			$this->Parse_HTML($formstring, "U");
@@ -623,8 +623,8 @@ class CTools
         else
         {
 			#parse pseudo html commands and delete them
-			$formstring = str_ireplace("\[BR\]", "", $formstring);
-			$formstring = str_ireplace("\[P\]", "", $formstring);
+			$formstring = str_ireplace("[BR]", "", $formstring);
+			$formstring = str_ireplace("[P]", "", $formstring);
 			$this->Parse_HTML($formstring, "B", true);
 			$this->Parse_HTML($formstring, "I", true);
 			$this->Parse_HTML($formstring, "U", true);

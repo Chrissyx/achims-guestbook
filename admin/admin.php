@@ -370,8 +370,8 @@ function Format_String(&$formstring, $emotion, $what)
     if($what == "text")
     {
         #parse pseudo html commands and replace it with real html commands
-        $formstring = str_ireplace("\[BR\]", "<BR>", $formstring);
-        $formstring = str_ireplace("\[P\]", "<P>", $formstring);
+        $formstring = str_ireplace("[BR]", "<BR>", $formstring);
+        $formstring = str_ireplace("[P]", "<P>", $formstring);
 
         if($emotion == "yes")
         {
