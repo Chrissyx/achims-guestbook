@@ -88,6 +88,7 @@ else
 		<INPUT TYPE="hidden" NAME="presave" VALUE="yes">
 		<INPUT TYPE="hidden" NAME="emotion" VALUE="<?php echo $this->emotion; ?>">
 		<INPUT TYPE="hidden" NAME="random" VALUE="<?php echo $random; ?>">
+        <INPUT TYPE="hidden" NAME="captcha" VALUE="<?php echo $_POST['captcha']; ?>">
 		<INPUT TYPE="submit" VALUE="<?php echo $this->messages[16]; ?>" ONFOCUS="filter:blur()">&nbsp;&nbsp;&nbsp;&nbsp;</FONT>
 		</TD></FORM>
 		<TD CLASS="normalcol" WIDTH="80%">
@@ -103,6 +104,7 @@ else
 		<INPUT TYPE="hidden" NAME="newmsn" VALUE="<?php echo $this->newmsn; ?>">
 		<INPUT TYPE="hidden" NAME="newloc" VALUE="<?php echo $this->newloc; ?>">
 		<INPUT TYPE="hidden" NAME="newtext" VALUE="<?php echo $this->newtext; ?>">
+        <INPUT TYPE="hidden" NAME="captcha" VALUE="<?php echo $_POST['captcha']; ?>">
 		<INPUT TYPE="submit" VALUE="<?php echo $this->messages[17]; ?>" ONFOCUS="filter:blur()"></FONT>
 		</TD></FORM>
 	</TR>

@@ -220,7 +220,11 @@ if($this->showoptions != 0)
 <?php
 }
 ?>
-<TR CLASS="tablerow2">
+<tr class="tablerow2">
+ <td class="normalcol" style="vertical-align:middle;"><font size="2" class="normalcol">CAPTCHA</font></td>
+ <td class="normalcol"><font size="2" class="normalcol"><input type="text" name="captcha" value="<?php if(isset($_POST['captcha'])) echo $_POST['captcha']; ?>"> &larr; Enter &quot;Hello&quot;</font></td>
+</tr>
+<TR CLASS="tablerow1">
 	<TD CLASS="normalcol" VALIGN="center">
 	<FONT SIZE="2" CLASS="normalcol">&nbsp;</FONT>
 	</TD>

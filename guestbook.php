@@ -217,6 +217,10 @@ elseif($act == "new")
 }
 elseif($act == "write")
 {
+    #CAPTCHA check
+    if(!isset($_POST['captcha']) || $_POST['captcha'] != 'Hello')
+        exit('Wrong CAPTCHA!');
+
     if(!isset($emotion))
         $emotion = null;
     if($pre == "yes" && isset($presave))
