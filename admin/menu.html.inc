@@ -29,7 +29,7 @@
 		<INPUT TYPE="radio" NAME="act" VALUE="editignorefilter" ONFOCUS="filter:blur()">&nbsp;Edit Ignore-Filter<P>
 <?php
 global $adminpass;
-if(md5($login) == $adminpass)
+if(password_verify($login, $adminpass))
 {
     #the following is only for admins visible
 ?>

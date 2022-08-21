@@ -215,11 +215,11 @@ if(isset($_POST['_cookielifetime']))
 if(isset($_POST['_datapath']))
     $_datapath = $_POST['_datapath'];
 
-if(isset($login) && (!isset($GuestbookAdmin) || md5($GuestbookAdmin) != $adminpass))
+if(isset($login) && (!isset($GuestbookAdmin) || !password_verify($GuestbookAdmin, $adminpass)))
 {
-    if(md5($login) == $adminpass && isset($store))
+    if(password_verify($login, $adminpass) && isset($store))
     {
-        if(isset($GuestbookModerator) && md5($GuestbookModerator) == $moderatorpass)
+        if(isset($GuestbookModerator) && password_verify($GuestbookModerator, $moderatorpass))
         {
             $cookielifetime = 0;
         }
@@ -232,12 +232,12 @@ if(isset($login) && (!isset($GuestbookAdmin) || md5($GuestbookAdmin) != $adminpa
 }
 else
 {
-    if(isset($GuestbookAdmin) && md5($GuestbookAdmin) == $adminpass)
+    if(isset($GuestbookAdmin) && password_verify($GuestbookAdmin, $adminpass))
         $login = $GuestbookAdmin;
 }
-if(isset($login) && md5($login) != $adminpass && (!isset($GuestbookModerator) || md5($GuestbookModerator) != $moderatorpass))
+if(isset($login) && !password_verify($login, $adminpass) && (!isset($GuestbookModerator) || !password_verify($GuestbookModerator, $moderatorpass)))
 {
-    if(md5($login) == $moderatorpass && isset($store))
+    if(password_verify($login, $moderatorpass) && isset($store))
     {
         $cookielifetime = ($cookielifetime > 31536000) ? 31536000 : $cookielifetime;
         setcookie("GuestbookModerator", $login, time() + $cookielifetime, "/");
@@ -245,7 +245,7 @@ if(isset($login) && md5($login) != $adminpass && (!isset($GuestbookModerator) ||
 }
 else
 {
-    if(isset($GuestbookModerator) && md5($GuestbookModerator) == $moderatorpass)
+    if(isset($GuestbookModerator) && password_verify($GuestbookModerator, $moderatorpass))
         $login = $GuestbookModerator;
 }
 
@@ -456,7 +456,7 @@ if(!isset($login))
 {
     require("login.html.inc");
 }
-elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
+elseif(password_verify($login, $adminpass) || password_verify($login, $moderatorpass))
 {
     if(!isset($act))
     {
@@ -540,7 +540,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             }
 
             #read signature file
-            if(file_exists("../signature.adm") && md5($login) == $adminpass && $signature == true)
+            if(file_exists("../signature.adm") && password_verify($login, $adminpass) && $signature == true)
             {
                 $input = fopen("../signature.adm", "r");
                 while($input && !feof($input))
@@ -550,7 +550,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
                 }
                 fclose($input);
             }
-            elseif(file_exists("../signature.mod") && md5($login) == $moderatorpass && $signature == true)
+            elseif(file_exists("../signature.mod") && password_verify($login, $moderatorpass) && $signature == true)
             {
                 $input = fopen("../signature.mod", "r");
                 while($input && !feof($input))
@@ -820,7 +820,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             Show_Menu($login);
         }
     }
-    elseif($act == "changeconfig" && md5($login) == $adminpass)
+    elseif($act == "changeconfig" && password_verify($login, $adminpass))
     {
         if(!isset($do))
         {
@@ -939,21 +939,21 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             fputs($output, rtrim("\$newdateonedit = $_newdateonedit;") . "\r\n");
             fputs($output, rtrim("\$fixedtime = $_fixedtime;") . "\r\n");
             fputs($output, rtrim("\$dateformat = $_dateformat;") . "\r\n");
-            fputs($output, rtrim("\$adminpass = \"" . md5($_adminpass) . "\";") . "\r\n");
+            fputs($output, rtrim("\$adminpass = '" . password_hash($_adminpass, PASSWORD_BCRYPT) . "';") . "\r\n");
             if($_moderatorpass != "")
             {
                 if($_moderatorpass != $moderatorpass)
                 {
-                    fputs($output, rtrim("\$moderatorpass = \"" . md5($_moderatorpass) . "\";") . "\r\n");
+                    fputs($output, rtrim("\$moderatorpass = '" . password_hash($_moderatorpass, PASSWORD_BCRYPT) . "';") . "\r\n");
                 }
                 else
                 {
-                    fputs($output, rtrim("\$moderatorpass = \"" . $moderatorpass . "\";") . "\r\n");
+                    fputs($output, rtrim("\$moderatorpass = '" . $moderatorpass . "';") . "\r\n");
                 }
             }
             else
             {
-                fputs($output, rtrim("\$moderatorpass = \"\";") . "\r\n");
+                fputs($output, rtrim("\$moderatorpass = '';") . "\r\n");
             }
             fputs($output, rtrim("\$adminmail = \"$_adminmail\";") . "\r\n");
             fputs($output, rtrim("\$moderatormail = \"$_moderatormail\";") . "\r\n");
@@ -967,12 +967,12 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             Show_Menu($login);
         }
     }
-    elseif($act == "changeconfig" && md5($login) != $adminpass)
+    elseif($act == "changeconfig" && !password_verify($login, $adminpass))
     {
         Show_Menu($login);
         exit();
     }
-    elseif($act == "newdatabase" && md5($login) == $adminpass)
+    elseif($act == "newdatabase" && password_verify($login, $adminpass))
     {
         if(!isset($do))
         {
@@ -985,7 +985,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             $input = fopen("../" . $datapath . "/index.dat", "r+") or die("Can't open index.dat for reading!");
             $input1 = fopen("../" . $datapath . "/data.dat", "r+") or die("Can't open data.dat for reading!");
 
-            mt_srand((double)microtime() * 1000000);
+            mt_srand((double) microtime() * 1000000);
             $random = mt_rand(0, 1000);
             $random1 = mt_rand(0, 1000);
             while(file_exists("../temp/temp" . $random . ".dat"))
@@ -1052,12 +1052,12 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             Show_Menu($login);
         }
     }
-    elseif($act == "newdatabase" && md5($login) != $adminpass)
+    elseif($act == "newdatabase" && !password_verify($login, $adminpass))
     {
         Show_Menu($login);
         exit();
     }
-    elseif($act == "resizeindex" && md5($login) == $adminpass)
+    elseif($act == "resizeindex" && password_verify($login, $adminpass))
     {
         if(!isset($newindex))
         {
@@ -1180,8 +1180,8 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
                 fputs($output, rtrim("\$newdateonedit = $newdateonedit;") . "\r\n");
                 fputs($output, rtrim("\$fixedtime = $fixedtime;") . "\r\n");
                 fputs($output, rtrim("\$dateformat = $dateformat;") . "\r\n");
-                fputs($output, rtrim("\$adminpass = \"$adminpass\";") . "\r\n");
-                fputs($output, rtrim("\$moderatorpass = \"$moderatorpass\";") . "\r\n");
+                fputs($output, rtrim("\$adminpass = '$adminpass';") . "\r\n");
+                fputs($output, rtrim("\$moderatorpass = '$moderatorpass';") . "\r\n");
                 fputs($output, rtrim("\$adminmail = \"$adminmail\";") . "\r\n");
                 fputs($output, rtrim("\$moderatormail = \"$moderatormail\";") . "\r\n");
                 fputs($output, rtrim("\$passfornewentries = \"$passfornewentries\";") . "\r\n");
@@ -1195,12 +1195,12 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             Show_Menu($login);
         }
     }
-    elseif($act == "resizeindex" && md5($login) != $adminpass)
+    elseif($act == "resizeindex" && !password_verify($login, $adminpass))
     {
         Show_Menu($login);
         exit();
     }
-    elseif($act == "rebuildindex" && md5($login) == $adminpass)
+    elseif($act == "rebuildindex" && password_verify($login, $adminpass))
     {
         if(!isset($do))
         {
@@ -1240,12 +1240,12 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             Show_Menu($login);
         }
     }
-    elseif($act == "rebuildindex" && md5($login) != $adminpass)
+    elseif($act == "rebuildindex" && !password_verify($login, $adminpass))
     {
         Show_Menu($login);
         exit();
     }
-    elseif($act == "importcsv" && md5($login) == $adminpass)
+    elseif($act == "importcsv" && password_verify($login, $adminpass))
     {
         if(!isset($do))
         {
@@ -1368,7 +1368,7 @@ elseif(md5($login) == $adminpass || md5($login) == $moderatorpass)
             Show_Menu($login);
         }
     }
-    elseif($act == "importcsv" && md5($login) != $adminpass)
+    elseif($act == "importcsv" && !password_verify($login, $adminpass))
     {
         Show_Menu($login);
         exit();

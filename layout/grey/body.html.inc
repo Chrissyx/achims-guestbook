@@ -94,7 +94,7 @@ if($this->messengers != 0)
 <?php
 global $GuestbookAdmin, $GuestbookModerator, $lang;
 
-if(md5($GuestbookAdmin) == $this->adminpass || md5($GuestbookModerator) == $this->moderatorpass)
+if(password_verify($GuestbookAdmin, $this->adminpass) || password_verify($GuestbookModerator, $this->moderatorpass))
 {
     echo "<TR>";
     echo "<TD ALIGN=\"right\" COLSPAN=\"2\" HEIGHT=\"8\"><DIV CLASS=\"pages\">";

@@ -221,7 +221,7 @@ class CTools
 
 		$this->Browser_Detection();
 
-		if($this->passfornewentries != 0 && md5($GuestbookAdmin) != $this->login)
+		if($this->passfornewentries != 0 && !password_verify($GuestbookAdmin, $this->login))
         {
 			$act = "new";
 			header("Location: admin/admin.php");
