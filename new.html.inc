@@ -25,16 +25,16 @@
 <?php
 if($this->messengers != 0)
 {
-    echo "\t\tdocument.newentry.newicq.value = \"\";\n";
-    echo "\t\tdocument.newentry.newaim.value = \"\";\n";
-  	echo "\t\tdocument.newentry.newyim.value = \"\";\n";
-  	echo "\t\tdocument.newentry.newmsn.value = \"\";\n";
+    echo "        document.newentry.newicq.value = \"\";\n";
+    echo "        document.newentry.newaim.value = \"\";\n";
+  	echo "        document.newentry.newyim.value = \"\";\n";
+  	echo "        document.newentry.newmsn.value = \"\";\n";
 }
 ?>
-  	    document.newentry.newname.value = "";
-  	    document.newentry.newmail.value = "";
-  	    document.newentry.newurl.value = "http://";
-  	    document.newentry.newtext.value = "";
+        document.newentry.newname.value = "";
+        document.newentry.newmail.value = "";
+        document.newentry.newurl.value = "http://";
+        document.newentry.newtext.value = "";
 	}
 
 	function CheckLength(max)

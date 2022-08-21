@@ -6,7 +6,7 @@
 <?php
 global $lang;
 
-if($this->page == 1)
+if($this->page <= 1)
 {
     echo "<FONT SIZE=\"1\" CLASS=\"header\">[ " . $this->messages[5] . " ]</FONT>\n";
 }

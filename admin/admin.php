@@ -540,7 +540,7 @@ elseif(password_verify($login, $adminpass) || password_verify($login, $moderator
             }
 
             #read signature file
-            if(file_exists("../signature.adm") && password_verify($login, $adminpass) && $signature == true)
+            if(file_exists("../signature.adm") && password_verify($login, $adminpass) && $signature)
             {
                 $input = fopen("../signature.adm", "r");
                 while($input && !feof($input))
@@ -550,7 +550,7 @@ elseif(password_verify($login, $adminpass) || password_verify($login, $moderator
                 }
                 fclose($input);
             }
-            elseif(file_exists("../signature.mod") && password_verify($login, $moderatorpass) && $signature == true)
+            elseif(file_exists("../signature.mod") && password_verify($login, $moderatorpass) && $signature)
             {
                 $input = fopen("../signature.mod", "r");
                 while($input && !feof($input))

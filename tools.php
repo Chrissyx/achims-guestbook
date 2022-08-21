@@ -238,7 +238,7 @@ class CTools
         {
 			echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">";
 			echo "<HTML><HEAD>";
-			echo "<SCRIPT TYPE=\"text/javascript\">function ShowError() {alert(\"".$this->messages[20]."\");}</SCRIPT>";
+			echo "<SCRIPT TYPE=\"text/javascript\">function ShowError() {alert(\"" . $this->messages[20] . "\");}</SCRIPT>";
 			echo "<LINK HREF=\"guestbook.css\" REL=\"stylesheet\" TYPE=\"text/css\">";
 			echo "</HEAD><BODY ONLOAD=\"javascript:ShowError()\"></BODY></HTML>";
 			$this->Formular_Show(1);
@@ -248,7 +248,7 @@ class CTools
         {
 			echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">";
 			echo "<HTML><HEAD>";
-			echo "<SCRIPT TYPE=\"text/javascript\">function ShowError() {alert(\"".$this->messages[21]."\");}</SCRIPT>";
+			echo "<SCRIPT TYPE=\"text/javascript\">function ShowError() {alert(\"" . $this->messages[21] . "\");}</SCRIPT>";
 			echo "<LINK HREF=\"guestbook.css\" REL=\"stylesheet\" TYPE=\"text/css\">";
 			echo "</HEAD><BODY ONLOAD=\"javascript:ShowError()\"></BODY></HTML>";
 			$this->Formular_Show(2);
@@ -258,7 +258,7 @@ class CTools
         {
 			echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">";
 			echo "<HTML><HEAD>";
-			echo "<SCRIPT TYPE=\"text/javascript\">function ShowError() {alert(\"".$this->messages[22]."\");}</SCRIPT>";
+			echo "<SCRIPT TYPE=\"text/javascript\">function ShowError() {alert(\"" . $this->messages[22] . "\");}</SCRIPT>";
 			echo "<LINK HREF=\"guestbook.css\" REL=\"stylesheet\" TYPE=\"text/css\">";
 			echo "</HEAD><BODY ONLOAD=\"javascript:ShowError()\"></BODY></HTML>";
 			$this->Formular_Show(3);
