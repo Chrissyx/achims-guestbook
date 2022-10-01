@@ -26,12 +26,13 @@ class CPreview extends CTools
 		parent::__construct($emotion);
 	}
 
-	function Show_Preview(&$newname, &$newmail, &$newicq, &$newaim, &$newyim, &$newmsn, &$newloc, &$newurl, &$newtext)
+	function Show_Preview(&$newname, &$newmail, &$newicq, &$newaim, &$newyim, &$newmsn, &$newloc, &$newurl, &$newtext, $encoding='ISO-8859-1')
     {
 		header("Expires: Mon, 08 Jan 1990 01:00:00 GMT");
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         header("Cache-Control: no-cache, must-revalidate");
         header("Pragma: no-cache");
+        header('Content-Type: text/html; charset=' . $encoding);
 
 		if($this->dateformat > 0)
         {

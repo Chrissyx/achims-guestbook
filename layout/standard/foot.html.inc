@@ -95,6 +95,7 @@ else
 </TABLE><P>
 <!-- DON'T REMOVE THE COPYRIGHT OR YOU OFFEND AGAINST THE LICENSE AGREEMENT!!! //-->
 <DIV ALIGN="center"><FONT CLASS="copyright" SIZE="2">Copyright (C) 2001 Achim Winkler</FONT><BR>
-<FONT SIZE="1"><B><A CLASS="normlink" HREF="http://www.lkcc.org/achim" TARGET="_blank" ONFOCUS="filter:blur()">http://www.lkcc.org/achim</A></B></FONT></DIV>
+<FONT SIZE="1"><B><A CLASS="normlink" HREF="http://www.lkcc.org/achim" TARGET="_blank" ONFOCUS="filter:blur()">http://www.lkcc.org/achim</A></B></FONT>
+<FONT CLASS="copyright" SIZE="2">Modified by Chrissyx</FONT></DIV>
 </BODY>
 </HTML>

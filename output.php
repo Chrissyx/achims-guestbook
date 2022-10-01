@@ -151,12 +151,13 @@ class COutput
 		}
 	}
 
-	function Output_Head()
+	function Output_Head($encoding='ISO-8859-1')
     {
 		header("Expires: Mon, 01 Jan 1990 05:00:00 GMT");
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         header("Cache-Control: no-cache, must-revalidate");
         header("Pragma: no-cache");
+        header('Content-Type: text/html; charset=' . $encoding);
 
 		require("head.html.inc");
 	}
@@ -166,7 +167,7 @@ class COutput
 		require("foot.html.inc");
 	}
 
-	function Output_Data()
+	function Output_Data($utf8=false)
     {
 		$position = $this->datacount - ($this->page * $this->entriesperpage);
 		if($position < 0)
@@ -231,6 +232,20 @@ class COutput
 				$text[] = rtrim(stripslashes(substr(fgets($input, 16384), 5)));
 				$date[] = rtrim(substr(fgets($input, 1024), 5));
 				$ip[] = rtrim(substr(fgets($input, 1024), 3));
+			}
+			if($utf8)
+			{
+				$name = array_map('utf8_encode', $name);
+				$mail = array_map('utf8_encode', $mail);
+				$icq = array_map('utf8_encode', $icq);
+				$aim = array_map('utf8_encode', $aim);
+				$yim = array_map('utf8_encode', $yim);
+				$msn = array_map('utf8_encode', $msn);
+				$loc = array_map('utf8_encode', $loc);
+				$url = array_map('utf8_encode', $url);
+				$text = array_map('utf8_encode', $text);
+				$date = array_map('utf8_encode', $date);
+				$ip = array_map('utf8_encode', $ip);
 			}
 
 			fclose($input);
