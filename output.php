@@ -32,6 +32,7 @@ class COutput
     public $shortmessengerformat;
     public $messages;
     public $adminpass;
+    public $moderatorpass;
     public $logip;
     public $datapath;
     public $language;
@@ -235,17 +236,17 @@ class COutput
 			}
 			if($utf8)
 			{
-				$name = array_map('utf8_encode', $name);
-				$mail = array_map('utf8_encode', $mail);
-				$icq = array_map('utf8_encode', $icq);
-				$aim = array_map('utf8_encode', $aim);
-				$yim = array_map('utf8_encode', $yim);
-				$msn = array_map('utf8_encode', $msn);
-				$loc = array_map('utf8_encode', $loc);
-				$url = array_map('utf8_encode', $url);
-				$text = array_map('utf8_encode', $text);
-				$date = array_map('utf8_encode', $date);
-				$ip = array_map('utf8_encode', $ip);
+				$name = array_map(array('COutput', 'utf8_encode'), $name);
+				$mail = array_map(array('COutput', 'utf8_encode'), $mail);
+				$icq = array_map(array('COutput', 'utf8_encode'), $icq);
+				$aim = array_map(array('COutput', 'utf8_encode'), $aim);
+				$yim = array_map(array('COutput', 'utf8_encode'), $yim);
+				$msn = array_map(array('COutput', 'utf8_encode'), $msn);
+				$loc = array_map(array('COutput', 'utf8_encode'), $loc);
+				$url = array_map(array('COutput', 'utf8_encode'), $url);
+				$text = array_map(array('COutput', 'utf8_encode'), $text);
+				$date = array_map(array('COutput', 'utf8_encode'), $date);
+				$ip = array_map(array('COutput', 'utf8_encode'), $ip);
 			}
 
 			fclose($input);
@@ -272,6 +273,11 @@ class COutput
 		$this->Output_Head();
 		$this->Output_Data();
 		$this->Output_Foot();
+	}
+
+	private function utf8_encode($string)
+	{
+		return @utf8_encode($string);
 	}
 }
 ?>

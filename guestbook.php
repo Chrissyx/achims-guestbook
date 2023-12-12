@@ -178,6 +178,8 @@ if(isset($_POST['newtext']))
     $newtext = $_POST['newtext'];
 if(isset($_COOKIE['GuestbookAdmin']))
     $GuestbookAdmin = $_COOKIE['GuestbookAdmin'];
+if(isset($_COOKIE['GuestbookModerator']))
+    $GuestbookModerator = $_COOKIE['GuestbookModerator'];
 
 if(!isset($act) || $act == "" || $act == "show")
 {

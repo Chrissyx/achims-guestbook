@@ -116,7 +116,7 @@ if($this->messengers != 0)
 <?php
 global $GuestbookAdmin, $GuestbookModerator, $lang;
 
-if(password_verify($GuestbookAdmin, $this->adminpass) || password_verify($GuestbookModerator, $this->moderatorpass))
+if(isset($GuestbookAdmin) && password_verify($GuestbookAdmin, $this->adminpass) || isset($GuestbookModerator) && password_verify($GuestbookModerator, $this->moderatorpass))
 {
     echo "<TR CLASS=\"$fligflag\">\n";
 	echo "\t<TD CLASS=\"normalcol\" ALIGN=\"right\" COLSPAN=\"2\" HEIGHT=\"8\">\n";
